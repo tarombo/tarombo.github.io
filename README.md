@@ -1,2 +1,0 @@
-# tarombo.github.io
-Tarombo
