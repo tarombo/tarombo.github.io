@@ -49,43 +49,12 @@
 
 <script>
 //  alert('location.href     = ' + window.location.href);
-  document.getElementById("deeplink").innerHTML = "Then click on the link <a href=¥"" + window.location.href + " ¥">" + window.location.href + "</a>";
+  document.getElementById("deeplink").innerHTML = "Then click on the link <a href=\"" + window.location.href + " \">" + window.location.href + "</a>";
   </script>
 
 </head>
 
 <body>
-
-  <!-- Messenger Chat Plugin Code -->
-  <div id="fb-root"></div>
-
-  <!-- Your Chat Plugin code -->
-  <div id="fb-customer-chat" class="fb-customerchat">
-  </div>
-
-  <script>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "115417283704605");
-    chatbox.setAttribute("attribution", "biz_inbox");
-  </script>
-
-  <!-- Your SDK code -->
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        xfbml            : true,
-        version          : 'v12.0'
-      });
-    };
-
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
@@ -129,7 +98,7 @@
             <p>
               <a href="https://play.google.com/store/apps/details?id=org.siboro.tarombo"><img src="img/google-play-badge.svg" alt="Tarombo for Android" style="width:150px;"></a>
         
-              <h3 id="deeplink"></h3>
+              <p id="deeplink"></p>
             </div>
         </section>
             
