@@ -48,8 +48,9 @@
 </script>
 
 <script>
-//  alert('location.href     = ' + window.location.href);
-  document.getElementById("deeplink").innerHTML = "Then click on the link <a href=\"" + window.location.href + " \">" + window.location.href + "</a>";
+  requstedurl = window.location.href;
+  alert('location.href     = ' + requstedurl);
+  document.getElementById("deeplink").innerHTML = "Then click on the link <a href=\"" + requstedurl + " \">" + requstedurl + "</a>";
   </script>
 
 </head>
