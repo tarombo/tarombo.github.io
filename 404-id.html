@@ -51,37 +51,6 @@
 
 <body>
 
-  <!-- Messenger Chat Plugin Code -->
-  <div id="fb-root"></div>
-
-  <!-- Your Chat Plugin code -->
-  <div id="fb-customer-chat" class="fb-customerchat">
-  </div>
-
-  <script>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "115417283704605");
-    chatbox.setAttribute("attribution", "biz_inbox");
-  </script>
-
-  <!-- Your SDK code -->
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        xfbml            : true,
-        version          : 'v12.0'
-      });
-    };
-
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
@@ -123,7 +92,9 @@
             <h3>To view the family tree, install Tarombo app for Android first</h3>
             <p>
               <a href="https://play.google.com/store/apps/details?id=org.siboro.tarombo"><img src="img/google-play-badge.svg" alt="Tarombo for Android" style="width:150px;"></a>
-        </div>
+        
+              <p id="deeplink"></p>
+            </div>
         </section>
             
               
@@ -172,6 +143,12 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    requstedurl = window.location.href;
+    //alert('location.href     = ' + requstedurl);
+    document.getElementById("deeplink").innerHTML = "Lalu klik lagi di link <a href=\"" + requstedurl + " \">" + requstedurl + "</a>";
+    </script>
 
 </body>
 
