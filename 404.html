@@ -48,9 +48,10 @@
 </script>
 
 <script>
-  alert('location.href     = ' + window.location.href);
+//  alert('location.href     = ' + window.location.href);
+  document.getElementById("deeplink").innerHTML = "Then click on the link <a href=¥"" + window.location.href + " ¥">" + window.location.href + "</a>";
   </script>
-  
+
 </head>
 
 <body>
@@ -127,7 +128,9 @@
             <h3>To view the family tree, install Tarombo app for Android first</h3>
             <p>
               <a href="https://play.google.com/store/apps/details?id=org.siboro.tarombo"><img src="img/google-play-badge.svg" alt="Tarombo for Android" style="width:150px;"></a>
-        </div>
+        
+              <h3 id="deeplink"></h3>
+            </div>
         </section>
             
               
