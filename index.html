@@ -23,7 +23,9 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,14 +40,17 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X325CYY2MT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X325CYY2MT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-X325CYY2MT');
-</script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-X325CYY2MT');
+  </script>
 
 </head>
 
@@ -66,17 +71,18 @@
 
   <!-- Your SDK code -->
   <script>
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function () {
       FB.init({
-        xfbml            : true,
-        version          : 'v12.0'
+        xfbml: true,
+        version: 'v12.0'
       });
     };
 
-    (function(d, s, id) {
+    (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
+      js = d.createElement(s);
+      js.id = id;
       js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
@@ -87,7 +93,8 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index.html"><span><img src="img/logo.jpg" style="height:1em;"> Tarombo</span></a></h1>
+        <h1 class="text-light"><a href="index.html"><span><img src="img/logo.jpg" style="height:1em;">
+              Tarombo</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -113,7 +120,7 @@
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Build your family tree <br>and collaborate</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">Blah blah blah.</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">with the free Tarombo app</h2>
           <div data-aos="fade-up" data-aos-delay="800">
             <a href="#download" class="btn-get-started scrollto">Get Started</a>
           </div>
@@ -132,27 +139,29 @@
     <section id="about" class="about">
       <div class="container">
 
-        <div class="section-title" data-aos="fade-up">
+        <div class="section-title">
           <h2>About Tarombo</h2>
-          Tarombo is a free smartphone app to record your genealogy. By logging in with a free GitHub account, you can record and manage together your extended family tree. So, you can share the genealogy that you created with other people so that other people can also add or correct the data. The changes you make can be accepted by them, and the changes they make can be reviewed and accepted for inclusion in your genealogy.
+          Tarombo is a free smartphone app to record your genealogy. By logging in with a free GitHub account, you can
+          record and manage together your extended family tree. So, you can share the genealogy that you created with
+          other people so that other people can also add or correct the data. The changes you make can be accepted by
+          them, and the changes they make can be reviewed and accepted for inclusion in your genealogy.
         </div>
 
         <div class="row content">
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="150">
+          <div class="col-lg-12">
             <p>
-               </p>
+            </p>
 
-              
-               
-<section id="download" class="download">      
-        <div class="text-center">
-            <h3>Download now for Android</h3>
-            <p>
-              <a href="https://play.google.com/store/apps/details?id=org.siboro.tarombo"><img src="img/google-play-badge.svg" alt="Tarombo for Android" style="width:150px;"></a>
-        </div>
-        </section>
-            
-              
+            <section id="download" class="download">
+              <div class="text-center">
+                <h3>Download now for Android</h3>
+                <p>
+                  <a href="https://play.google.com/store/apps/details?id=org.siboro.tarombo"><img
+                      src="img/google-play-badge.svg" alt="Tarombo for Android" style="width:150px;"></a>
+              </div>
+            </section>
+
+
           </div>
         </div>
 
@@ -163,13 +172,13 @@
     <section id="contact" class="contact">
       <div class="container">
 
-        <div class="section-title" data-aos="fade-up">
+        <div class="section-title">
           <h2>Contact Us</h2>
         </div>
 
         <div class="row">
 
-          <div class="col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 col-md-12">
             <div class="contact-about">
               <h3>Tarombo</h3>
               <p>Record your family tree and collaborate with others.</p>
@@ -177,7 +186,8 @@
                 <a href="https://twitter.com/taromboapp/" class="twitter"><i class="icofont-twitter"></i></a>
                 <a href="https://www.facebook.com/taromboapp/" class="facebook"><i class="icofont-facebook"></i></a>
                 <a href="https://www.instagram.com/taromboapp/" class="instagram"><i class="icofont-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/taromboapp/" class="linkedin"><i class="icofont-linkedin"></i></a>
+                <a href="https://www.linkedin.com/company/taromboapp/" class="linkedin"><i
+                    class="icofont-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -227,16 +237,14 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-<script>
-
-    $( document ).ready(function(){
+  <script>
+    $(document).ready(function () {
       var userLang = navigator.language || navigator.userLanguage;
-     if(userLang == "id"){
+      if (userLang == "id") {
         window.location.href = "./index-id.html"
       }
     });
-
-</script>
+  </script>
 
 </body>
 
