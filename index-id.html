@@ -9,21 +9,23 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <meta property="og:title" content="Tarombo: the family tree app" />
+  <meta property="og:title" content="Tarombo: Catat silsilahmu dan kelola bersama" />
   <meta property="og:type" content="website" />
   <meta property="og:image" itemprop="image" content="https://tarombo.siboro.org/img/logo.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
   <!--<meta property="og:image:width" content="400" />
   <meta property="og:image:height" content="300" />-->
   <meta property="og:url" content="https://tarombo.siboro.org" />
-  <meta property="og:description" content="Collaborate and build your family tree" />
+  <meta property="og:description" content="Aplikasi gratis untuk mencatat bersama silsilah kamu" />
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,14 +40,17 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X325CYY2MT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X325CYY2MT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-X325CYY2MT');
-</script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-X325CYY2MT');
+  </script>
 
 </head>
 
@@ -66,17 +71,18 @@
 
   <!-- Your SDK code -->
   <script>
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function () {
       FB.init({
-        xfbml            : true,
-        version          : 'v12.0'
+        xfbml: true,
+        version: 'v12.0'
       });
     };
 
-    (function(d, s, id) {
+    (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
+      js = d.createElement(s);
+      js.id = id;
       js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
@@ -87,7 +93,8 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index.html"><span><img src="img/logo.jpg" style="height:1em;"> Tarombo</span></a></h1>
+        <h1 class="text-light"><a href="index.html"><span><img src="img/logo.jpg" style="height:1em;">
+              Tarombo</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -119,7 +126,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-          <img src="img/hero-img.png" class="img-fluid animated" alt="">
+          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
@@ -132,61 +139,45 @@
     <section id="about" class="about">
       <div class="container">
 
-        <div class="section-title">
-          <h2>Tentang Tarombo</h2>
-        </div>
-
         <div class="row content">
           <div class="col-lg-12">
             <p>
-              Tarombo adalah aplikasi smartphone gratis untuk mencatat silsilah kamu. Dengan login menggunakan akun GitHub gratis, kamu bisa mencatat dan mengelola bersama silsilah keluarga besarmu. Jadi, kamu bisa membagikan silsilah yang kamu buat ke orang lain agar orang lain tersebut bisa ikut menambahkan atau memperbaiki datanya. Perubahan yang kamu buat bisa diterima oleh mereka, dan perubahan yang mereka buat bisa kamu periksa dan terima untuk dimasukkan ke silsilah.
+              Tarombo adalah aplikasi smartphone gratis untuk mencatat silsilah kamu. Dengan login menggunakan akun
+              GitHub gratis, kamu bisa mencatat dan mengelola bersama silsilah keluarga besarmu. Jadi, kamu bisa
+              membagikan silsilah yang kamu buat ke orang lain agar orang lain tersebut bisa ikut menambahkan atau
+              memperbaiki datanya. Perubahan yang kamu buat bisa diterima oleh mereka, dan perubahan yang mereka buat
+              bisa kamu periksa dan terima untuk dimasukkan ke silsilah.
             </p>
-
-              
-               
-<section id="download" class="download">      
-        <div class="text-center">
-            <h3>Install sekarang di Android</h3>
-            <p>
-              <a href="https://play.google.com/store/apps/details?id=org.siboro.tarombo"><img src="img/google-play-badge.svg" alt="Tarombo for Android" style="width:150px;"></a>
-            </p>
-            </div>
-        </section>
-            
-              
           </div>
-        </div>
 
-      </div>
+        </div>
     </section><!-- End About Us Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Hubungi kami</h2>
-        </div>
-
-        <div class="row content">
-
-          <div class="col-lg-12">
-            <div class="contact-about text-center">
-              <h3>Tarombo</h3>
-              <p>Catat silsilahmu dan kolaborasi.</p>
-              <div class="social-links">
-                <a href="https://twitter.com/taromboapp/" class="twitter"><i class="icofont-twitter"></i></a>
-                <a href="https://www.facebook.com/taromboapp/" class="facebook"><i class="icofont-facebook"></i></a>
-                <a href="https://www.instagram.com/taromboapp/" class="instagram"><i class="icofont-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/taromboapp/" class="linkedin"><i class="icofont-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
+    <section id="download" class="download">
+      <div class="text-center">
+        <h3>Install sekarang di Android</h3>
+        <p>
+          <a href="https://play.google.com/store/apps/details?id=org.siboro.tarombo"><img
+              src="img/google-play-badge.svg" alt="Tarombo untuk Android" style="width:150px;"></a>
+        </p>
       </div>
-    </section><!-- End Contact Section -->
+    </section>
+
+    <section id="contact">
+      <div class="col-lg-12">
+        <div class="contact-about text-center contact">
+          <h3>Hubungi Kami</h3>
+          <p>Catat silsilahmu dan kolaborasi.</p>
+          <div class="social-links">
+            <a href="https://twitter.com/taromboapp/" class="twitter"><i class="icofont-twitter"></i></a>
+            <a href="https://www.facebook.com/taromboapp/" class="facebook"><i class="icofont-facebook"></i></a>
+            <a href="https://www.instagram.com/taromboapp/" class="instagram"><i class="icofont-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/taromboapp/" class="linkedin"><i class="icofont-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
   </main><!-- End #main -->
 
@@ -228,8 +219,8 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-<script>
-  /*
+  <script>
+    /*
     $( document ).ready(function(){
       var userLang = navigator.language || navigator.userLanguage;
       if(userLang == "ja"){
@@ -240,7 +231,7 @@
       }
     });
 */
-</script>
+  </script>
 
 </body>
 
