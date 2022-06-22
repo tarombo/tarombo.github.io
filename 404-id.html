@@ -157,7 +157,7 @@
     //requstedurl = window.location.href;
     //alert('location.href     = ' + requstedurl);
 
-    document.getElementById("deeplink").innerHTML = "LLLalu klik di <a href=\"" + encodeURIComponent(document.referrer) + " \">link</a> tadi lagi";
+    document.getElementById("deeplink").innerHTML = "LLLalu klik di <a href=\"" + encodeURIComponent(document.referrer) + " \">link</a> tadi lagi" + encodeURIComponent(document.referrer) + ", " + window.location.href;
 
     //document.getElementById('deeplink').innerHTML = encodeURIComponent(document.referrer);
 
