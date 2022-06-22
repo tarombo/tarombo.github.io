@@ -163,10 +163,12 @@
   </script>
 
   <script>
-    requstedurl = window.location.href;
+    //requstedurl = window.location.href;
     //alert('location.href     = ' + requstedurl);
 
-    document.getElementById("deeplink").innerHTML = "Then click on the <a href=\"" + requstedurl + " \">link</a> again";
+    //document.getElementById("deeplink").innerHTML = "Then click on the <a href=\"" + requstedurl + " \">link</a> again";
+    document.getElementById("deeplink").innerHTML = "LLLalu klik di <a href=\"" + encodeURIComponent(document.referrer) + " \">link</a> tadi lagi <br>" + encodeURIComponent(document.referrer) + ", <br>" + window.location.href;
+
   </script>
 
 </body>
