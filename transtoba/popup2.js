@@ -19,15 +19,16 @@ let pfc; // Define pfc as an integer variable
 
 function actionTextInMain() {
 
-	console.log("actionTextInMain: Starting ")
 	let input = document.getElementById('input').value;
 	let output = document.getElementById('output');
 
-  read_prefilter("de", map_prefilter_de);
-  read_prefilter("id", map_prefilter_id);
-  read_transtoba_code();
-  //load_ttf_fonts();
-  //build_window_layout();
+	console.log("actionTextInMain: input is " + input);
+
+	read_prefilter("de", map_prefilter_de);
+	read_prefilter("id", map_prefilter_id);
+	read_transtoba_code();
+	//load_ttf_fonts();
+	//build_window_layout();
 
 	apply_prefilter();
 	apply_transtoba();
@@ -36,106 +37,109 @@ function actionTextInMain() {
 }
 
 async function read_prefilter(lang, map) {
-  const resourcePath = `transtoba-prefilter-${lang}.dat`;
+	const resourcePath = `transtoba-prefilter-${lang}.dat`;
 
-  try {
-    const response = await fetch(resourcePath);
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch resource: ${response.status} ${response.statusText}`);
-    }
+	try {
+		const response = await fetch(resourcePath);
 
-    const blob = await response.blob();
-    const text = await readBlobAsText(blob);
+		if (!response.ok) {
+			throw new Error(`Failed to fetch resource: ${response.status} ${response.statusText}`);
+		}
 
-    const lines = text.trim().split('\n');
-    for (const line of lines) {
-      const [key, value] = line.trim().split(/\s+/);
-      if (value) {
-        map.set(key, value);
-      }
-    }
-  } catch (error) {
-    console.error(error);
-  }
+		const blob = await response.blob();
+		const text = await readBlobAsText(blob);
+
+		const lines = text.trim().split('\n');
+		for (const line of lines) {
+			const [key, value] = line.trim().split(/\s+/);
+			if (value) {
+				map.set(key, value);
+				console.log("read_prefilter: map is " + key + "," + value);
+			}
+		}
+	} catch (error) {
+		console.error(error);
+	}
 }
 
 async function readBlobAsText(blob) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
+	return new Promise((resolve, reject) => {
+		const reader = new FileReader();
 
-    reader.onload = () => {
-      resolve(reader.result);
-    };
+		reader.onload = () => {
+			resolve(reader.result);
+		};
 
-    reader.onerror = () => {
-      reject(new Error('Failed to read blob as text.'));
-    };
+		reader.onerror = () => {
+			reject(new Error('Failed to read blob as text.'));
+		};
 
-    reader.readAsText(blob);
-  });
+		reader.readAsText(blob);
+	});
 }
 
 /******************************************************************************
   prefiltering - replacing characters we don't have replacements for ;)
  ******************************************************************************/
 
-   /* currently for Indonesian/English only */
-  /*
+/* currently for Indonesian/English only */
+/*
 function apply_prefilter() {
-	str_out = input;
-	if (true) { 
-		for (const [key, value] of map_prefilter_id.entries()) {
-			str_out = str_out.replaceAll(key.toLowerCase(), value.toLowerCase());
-			str_out = str_out.replaceAll(key.toUpperCase(), value.toUpperCase());
-		}
-	} else {
-		for (const [key, value] of map_prefilter_de.entries()) {
-			str_out = str_out.replaceAll(key.toLowerCase(), value.toLowerCase());
-			str_out = str_out.replaceAll(key.toUpperCase(), value.toUpperCase());
-		}
-	}
+  str_out = input;
+  if (true) { 
+	  for (const [key, value] of map_prefilter_id.entries()) {
+		  str_out = str_out.replaceAll(key.toLowerCase(), value.toLowerCase());
+		  str_out = str_out.replaceAll(key.toUpperCase(), value.toUpperCase());
+	  }
+  } else {
+	  for (const [key, value] of map_prefilter_de.entries()) {
+		  str_out = str_out.replaceAll(key.toLowerCase(), value.toLowerCase());
+		  str_out = str_out.replaceAll(key.toUpperCase(), value.toUpperCase());
+	  }
+  }
 }
 */
 
 function apply_prefilter() {
 	if (typeof str_out !== 'string') {
-	  // Convert str_out to a string if it's not already
-	  str_out = String(str_out);
+		// Convert str_out to a string if it's not already
+		str_out = String(str_out);
 	}
-  
+
 	if (true) {  /* currently for Indonesian/English only */
-	  for (const [key, value] of map_prefilter_id.entries()) {
-		const regex = new RegExp(escapeRegExp(key), 'gi');
-		str_out = str_out.replace(regex, (match) => {
-		  // Check the case of the match and replace accordingly
-		  if (match === key.toLowerCase()) {
-			return value.toLowerCase();
-		  } else {
-			return value.toUpperCase();
-		  }
-		});
-	  }
+		for (const [key, value] of map_prefilter_id.entries()) {
+			const regex = new RegExp(escapeRegExp(key), 'gi');
+			str_out = str_out.replace(regex, (match) => {
+				// Check the case of the match and replace accordingly
+				if (match === key.toLowerCase()) {
+					return value.toLowerCase();
+				} else {
+					return value.toUpperCase();
+				}
+			});
+			console.log("apply_prefilter: map_prefilter_id is " + key + "," + value);
+		}
 	} else {
-	  for (const [key, value] of map_prefilter_de.entries()) {
-		const regex = new RegExp(escapeRegExp(key), 'gi');
-		str_out = str_out.replace(regex, (match) => {
-		  // Check the case of the match and replace accordingly
-		  if (match === key.toLowerCase()) {
-			return value.toLowerCase();
-		  } else {
-			return value.toUpperCase();
-		  }
-		});
-	  }
+		for (const [key, value] of map_prefilter_de.entries()) {
+			const regex = new RegExp(escapeRegExp(key), 'gi');
+			str_out = str_out.replace(regex, (match) => {
+				// Check the case of the match and replace accordingly
+				if (match === key.toLowerCase()) {
+					return value.toLowerCase();
+				} else {
+					return value.toUpperCase();
+				}
+			});
+			console.log("apply_prefilter: map_prefilter_id is " + key + "," + value);
+		}
 	}
-  }
-  
-  function escapeRegExp(str) {
+}
+
+function escapeRegExp(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-  
-  
+}
+
+
 
 /******************************************************************************
   main transliteration functions
@@ -220,6 +224,8 @@ function apply_transtoba() {
 			out += " ";
 		}
 		out += "\n";
+
+		console.log("apply_transtoba: tempa,out is " + tempa + "," + out);
 	}
 
 	for (let x = 3; x < out.length; x++) {
@@ -270,101 +276,102 @@ function apply_transtoba() {
   loading transtoba data files
  ******************************************************************************/
 
-  async function read_transtoba_code() {
-    let result;
-    let s;
-    let ins = null;
-    let ti = 0;
-  
-    try {
-      const codeurl = "transtoba-code.dat"; // Set the path to your resource here
-      const response = await fetch(codeurl);
-  
-      if (!response.ok) {
-        throw new Error(`Failed to fetch resource: ${response.status} ${response.statusText}`);
-      }
-  
-      const text = await response.text();
-      const lines = text.trim().split('\n');
-      ttc = 0;
-  
-      for (const line of lines) {
-        result = line.trim().split(/\s+/);
-        if (result.length > 2) {
-          tt_os.push(parseInt(result[0]));
-          tt_range.push(parseInt(result[1]));
-          tt_in.push(result[2]);
-          tt_out.push(hex2asc(result[3]));
-          ttc++;
-        }
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
-  function hex2asc(input) {
-    let temp = input;
-    let out = '';
-    let pi = 0;
-  
-    while (temp.length !== 0) {
-      pi = parseInt(temp.substring(0, 4), 16);
-      out += String.fromCharCode(pi);
-      temp = temp.substring(4);
-    }
-  
-    return out;
-  }  
-
-  /*
-function readPrefilter(lang, map) {
+async function read_transtoba_code() {
 	let result;
 	let s;
 	let ins = null;
+	let ti = 0;
+
 	try {
-		const codeurl = transtoba2.class.getClassLoader().getResource("transtoba-prefilter-" + lang + ".dat");
-		try { ins = codeurl.openStream(); }
-		catch (e) {
-			console.error(e);
+		const codeurl = "transtoba-code.dat"; // Set the path to your resource here
+		const response = await fetch(codeurl);
+
+		if (!response.ok) {
+			throw new Error(`Failed to fetch resource: ${response.status} ${response.statusText}`);
 		}
-		const reader = new InputStreamReader(ins);
-		const br = new BufferedReader(reader);
-		while ((s = br.readLine()) !== null) {
-			result = s.trim().split(/\s+/);
-			if (result.length > 1) {
-				map.set(result[0], result[1]);
+
+		const text = await response.text();
+		const lines = text.trim().split('\n');
+		ttc = 0;
+
+		for (const line of lines) {
+			console.log("read_transtoba_code: line is " + line);
+			result = line.trim().split(/\s+/);
+			if (result.length > 2) {
+				tt_os.push(parseInt(result[0]));
+				tt_range.push(parseInt(result[1]));
+				tt_in.push(result[2]);
+				tt_out.push(hex2asc(result[3]));
+				ttc++;
 			}
 		}
-	} catch (e) {
-		console.error(e);
+	} catch (error) {
+		console.error(error);
 	}
+}
+
+function hex2asc(input) {
+	let temp = input;
+	let out = '';
+	let pi = 0;
+
+	while (temp.length !== 0) {
+		pi = parseInt(temp.substring(0, 4), 16);
+		out += String.fromCharCode(pi);
+		temp = temp.substring(4);
+	}
+
+	return out;
+}
+
+/*
+function readPrefilter(lang, map) {
+  let result;
+  let s;
+  let ins = null;
+  try {
+	  const codeurl = transtoba2.class.getClassLoader().getResource("transtoba-prefilter-" + lang + ".dat");
+	  try { ins = codeurl.openStream(); }
+	  catch (e) {
+		  console.error(e);
+	  }
+	  const reader = new InputStreamReader(ins);
+	  const br = new BufferedReader(reader);
+	  while ((s = br.readLine()) !== null) {
+		  result = s.trim().split(/\s+/);
+		  if (result.length > 1) {
+			  map.set(result[0], result[1]);
+		  }
+	  }
+  } catch (e) {
+	  console.error(e);
+  }
 }
 */
 
 async function readPrefilter(lang, map) {
 	try {
-	  const codeurl = `transtoba-prefilter-${lang}.dat`; // Replace with the actual URL
-	  const response = await fetch(codeurl);
-  
-	  if (!response.ok) {
-		throw new Error(`Failed to fetch resource: ${response.status} ${response.statusText}`);
-	  }
-  
-	  const text = await response.text();
-	  const lines = text.trim().split('\n');
-  
-	  for (const line of lines) {
-		const result = line.trim().split(/\s+/);
-		if (result.length > 1) {
-		  map.set(result[0], result[1]);
+		const codeurl = `transtoba-prefilter-${lang}.dat`; // Replace with the actual URL
+		const response = await fetch(codeurl);
+
+		if (!response.ok) {
+			throw new Error(`Failed to fetch resource: ${response.status} ${response.statusText}`);
 		}
-	  }
+
+		const text = await response.text();
+		const lines = text.trim().split('\n');
+
+		for (const line of lines) {
+			const result = line.trim().split(/\s+/);
+			if (result.length > 1) {
+				map.set(result[0], result[1]);
+			}
+		}
 	} catch (error) {
-	  console.error(error);
+		console.error(error);
 	}
-  }
-  
+}
+
 
 
 /******************************************************************************
@@ -374,21 +381,21 @@ async function readPrefilter(lang, map) {
 function toba_is_konsonant(inChar) {
 	const kons = [0x61, 0x68, 0x6B, 0x62, 0x70, 0x6E, 0x77, 0x67, 0x6A, 0x64, 0x72, 0x6D, 0x74, 0x73, 0x79, 0x3C, 0x6C, 0x00];
 	for (let x = 0; inChar !== kons[x]; x++) {
-	  if (kons[x] === 0x00) return false;
+		if (kons[x] === 0x00) return false;
 	}
 	return true;
-  }
-  
-  function toba_is_konsonant_u(inChar) {
+}
+
+function toba_is_konsonant_u(inChar) {
 	const k_u = [0x41, 0x48, 0x4B, 0x42, 0x50, 0x4E, 0x57, 0x47, 0x4A, 0x44, 0x52, 0x4D, 0x54, 0x53, 0x59, 0x3E, 0x4C, 0x00];
 	for (let x = 0; inChar !== k_u[x]; x++) {
-	  if (k_u[x] === 0x00) return false;
+		if (k_u[x] === 0x00) return false;
 	}
 	return true;
-  }
-  
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
-  //document.getElementById('alertButton').addEventListener('click', myAlert);
-  document.getElementById('transliterate').addEventListener('click', actionTextInMain);
+	//document.getElementById('alertButton').addEventListener('click', myAlert);
+	document.getElementById('transliterate').addEventListener('click', actionTextInMain);
 });
