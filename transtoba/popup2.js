@@ -99,7 +99,11 @@ function apply_prefilter() {
 */
 
 function apply_prefilter() {
-	str_out = input;
+	if (typeof str_out !== 'string') {
+	  // Convert str_out to a string if it's not already
+	  str_out = String(str_out);
+	}
+  
 	if (true) {  /* currently for Indonesian/English only */
 	  for (const [key, value] of map_prefilter_id.entries()) {
 		const regex = new RegExp(escapeRegExp(key), 'gi');
@@ -130,6 +134,7 @@ function apply_prefilter() {
   function escapeRegExp(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
+  
   
 
 /******************************************************************************
