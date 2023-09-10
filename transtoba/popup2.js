@@ -7,6 +7,8 @@ let cache_vals = []; // Initialize an empty array
 let ttc, pfc; // Declare ttc and pfc as variables
 let toggle_whitespaces = false; // Initialize it as false (assuming it's initially off)
 
+let tt_os = []; // Initialize an empty array
+
 function actionTextInMain() {
 
 
