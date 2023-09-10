@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Batak Toba';
+  src: url('Batak-Unicode-Regular.otf') format('opentype');
+}
+
+body {
+  font-family: 'Batak Toba', Arial, sans-serif;
+}
