@@ -19,7 +19,7 @@ let pfc; // Define pfc as an integer variable
 
 function actionTextInMain() {
 
-
+	console.log("actionTextInMain: Starting ")
 	let input = document.getElementById('input').value;
 	let output = document.getElementById('output');
 
