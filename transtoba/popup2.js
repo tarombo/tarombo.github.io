@@ -54,7 +54,7 @@ async function read_prefilter(lang, map) {
 			const [key, value] = line.trim().split(/\s+/);
 			if (value) {
 				map.set(key, value);
-				console.log("read_prefilter: map is " + key + "," + value);
+				//console.log("read_prefilter: map is " + key + "," + value);
 			}
 		}
 	} catch (error) {
@@ -295,7 +295,7 @@ async function read_transtoba_code() {
 		ttc = 0;
 
 		for (const line of lines) {
-			console.log("read_transtoba_code: line is " + line);
+			//console.log("read_transtoba_code: line is " + line);
 			result = line.trim().split(/\s+/);
 			if (result.length > 2) {
 				tt_os.push(parseInt(result[0]));
