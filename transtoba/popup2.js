@@ -106,7 +106,8 @@ function apply_prefilter() {
 		str_out = String(str_out);
 	}
 
-	if (true) {  /* currently for Indonesian/English only */
+	/* currently for Indonesian/English only */
+	//if (toggle_prefilter.getSelectedItem() === toggle_prefilter_opts[glid][0]) {
 		for (const [key, value] of map_prefilter_id.entries()) {
 			const regex = new RegExp(escapeRegExp(key), 'gi');
 			str_out = str_out.replace(regex, (match) => {
@@ -119,20 +120,19 @@ function apply_prefilter() {
 			});
 			console.log("apply_prefilter: map_prefilter_id is " + key + "," + value);
 		}
-	} else {
-		for (const [key, value] of map_prefilter_de.entries()) {
-			const regex = new RegExp(escapeRegExp(key), 'gi');
-			str_out = str_out.replace(regex, (match) => {
+	//} else {
+	//	for (const [key, value] of map_prefilter_de.entries()) {
+	//		const regex = new RegExp(escapeRegExp(key), 'gi');
+	//		str_out = str_out.replace(regex, (match) => {
 				// Check the case of the match and replace accordingly
-				if (match === key.toLowerCase()) {
-					return value.toLowerCase();
-				} else {
-					return value.toUpperCase();
-				}
-			});
-			console.log("apply_prefilter: map_prefilter_id is " + key + "," + value);
-		}
-	}
+	//			if (match === key.toLowerCase()) {
+	//				return value.toLowerCase();
+	//			} else {
+	//				return value.toUpperCase();
+	//			}
+	//		});
+	//	}
+	//}
 }
 
 function escapeRegExp(str) {
