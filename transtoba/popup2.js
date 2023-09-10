@@ -4,7 +4,6 @@ let str_in = "";
 let str_out = "";
 let cache_keys = []; // Initialize an empty array
 let cache_vals = []; // Initialize an empty array
-let ttc, pfc; // Declare ttc and pfc as variables
 let toggle_whitespaces = false; // Initialize it as false (assuming it's initially off)
 
 let pf_in = []; // Initialize an empty array for String[]
