@@ -80,9 +80,11 @@ async function readBlobAsText(blob) {
   prefiltering - replacing characters we don't have replacements for ;)
  ******************************************************************************/
 
+   /* currently for Indonesian/English only */
+  /*
 function apply_prefilter() {
 	str_out = input;
-	if (true) {  /* currently for Indonesian/English only */
+	if (true) { 
 		for (const [key, value] of map_prefilter_id.entries()) {
 			str_out = str_out.replaceAll(key.toLowerCase(), value.toLowerCase());
 			str_out = str_out.replaceAll(key.toUpperCase(), value.toUpperCase());
@@ -94,6 +96,41 @@ function apply_prefilter() {
 		}
 	}
 }
+*/
+
+function apply_prefilter() {
+	str_out = input;
+	if (true) {  /* currently for Indonesian/English only */
+	  for (const [key, value] of map_prefilter_id.entries()) {
+		const regex = new RegExp(escapeRegExp(key), 'gi');
+		str_out = str_out.replace(regex, (match) => {
+		  // Check the case of the match and replace accordingly
+		  if (match === key.toLowerCase()) {
+			return value.toLowerCase();
+		  } else {
+			return value.toUpperCase();
+		  }
+		});
+	  }
+	} else {
+	  for (const [key, value] of map_prefilter_de.entries()) {
+		const regex = new RegExp(escapeRegExp(key), 'gi');
+		str_out = str_out.replace(regex, (match) => {
+		  // Check the case of the match and replace accordingly
+		  if (match === key.toLowerCase()) {
+			return value.toLowerCase();
+		  } else {
+			return value.toUpperCase();
+		  }
+		});
+	  }
+	}
+  }
+  
+  function escapeRegExp(str) {
+	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+  
 
 /******************************************************************************
   main transliteration functions
