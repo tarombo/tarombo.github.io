@@ -180,6 +180,8 @@ function apply_transtoba() {
 	console.log("apply_transtoba: tempb is " + tempb);
 
 	for (j = 0; j < tempb.length; j++) {
+
+	console.log("apply_transtoba: tempb.length is " + tempb.length + "j is now " + j);
 		/*
 		if (progress !== null) {
 			progress.setValue(100 - (100 / tempb.length) * j);
