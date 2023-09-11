@@ -112,6 +112,8 @@ function apply_prefilter() {
 		console.log("apply_prefilter: str_out is not a string");
 		// Convert str_out to a string if it's not already
 		str_out = String(str_out);
+	} else {
+		console.log("apply_prefilter: str_out is a string");
 	}
 
 	console.log("apply_prefilter: map_prefilter_id is " + map_prefilter_id);
