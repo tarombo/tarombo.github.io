@@ -177,6 +177,8 @@ function apply_transtoba() {
 	let j = 0;
 
 	let tempb = String(str_out).toUpperCase().split("\n");
+	console.log("apply_transtoba: tempb is " + tempb);
+
 	for (j = 0; j < tempb.length; j++) {
 		/*
 		if (progress !== null) {
