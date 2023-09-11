@@ -103,6 +103,9 @@ function apply_prefilter() {
 */
 
 function apply_prefilter() {
+
+	console.log("apply_prefilter: str_out is " + str_out);
+
 	if (typeof str_out !== 'string') {
 		// Convert str_out to a string if it's not already
 		str_out = String(str_out);
@@ -110,23 +113,23 @@ function apply_prefilter() {
 
 	/* currently for Indonesian/English only */
 	//if (toggle_prefilter.getSelectedItem() === toggle_prefilter_opts[glid][0]) {
-		for (const [key, value] of map_prefilter_id.entries()) {
-			const regex = new RegExp(escapeRegExp(key), 'gi');
-			str_out = str_out.replace(regex, (match) => {
-				// Check the case of the match and replace accordingly
-				if (match === key.toLowerCase()) {
-					return value.toLowerCase();
-				} else {
-					return value.toUpperCase();
-				}
-			});
-			console.log("apply_prefilter: map_prefilter_id is " + key + "," + value);
-		}
+	for (const [key, value] of map_prefilter_id.entries()) {
+		const regex = new RegExp(escapeRegExp(key), 'gi');
+		str_out = str_out.replace(regex, (match) => {
+			// Check the case of the match and replace accordingly
+			if (match === key.toLowerCase()) {
+				return value.toLowerCase();
+			} else {
+				return value.toUpperCase();
+			}
+		});
+		console.log("apply_prefilter: map_prefilter_id is " + key + "," + value);
+	}
 	//} else {
 	//	for (const [key, value] of map_prefilter_de.entries()) {
 	//		const regex = new RegExp(escapeRegExp(key), 'gi');
 	//		str_out = str_out.replace(regex, (match) => {
-				// Check the case of the match and replace accordingly
+	// Check the case of the match and replace accordingly
 	//			if (match === key.toLowerCase()) {
 	//				return value.toLowerCase();
 	//			} else {
@@ -246,7 +249,7 @@ function apply_transtoba() {
 				out.substring(x - 2, x - 1) +
 				out.substring(x);
 		}
-		console.log("apply_transtoba: out now is " + out);		
+		console.log("apply_transtoba: out now is " + out);
 	}
 
 	for (let x = 2; x < out.length; x++) {
@@ -261,14 +264,14 @@ function apply_transtoba() {
 				String.fromCharCode(out.charCodeAt(x - 1) - 0x20) +
 				out.substring(x);
 		}
-		console.log("apply_transtoba: out now is " + out);	
+		console.log("apply_transtoba: out now is " + out);
 	}
 
 	if (!toggle_whitespaces) {
 		out = out.replaceAll(" ", "");
 	}
 
-	console.log("apply_transtoba: out now is " + out);	
+	console.log("apply_transtoba: out now is " + out);
 
 	str_out = out;
 	/*
