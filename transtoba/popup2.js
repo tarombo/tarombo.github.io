@@ -227,7 +227,8 @@ function apply_transtoba() {
 		}
 		out += "\n";
 
-		console.log("apply_transtoba: tempa,out is " + tempa + "," + out);
+		console.log("apply_transtoba: tempa is " + tempa);
+		console.log("apply_transtoba: out is " + out);
 	}
 
 	for (let x = 3; x < out.length; x++) {
@@ -245,6 +246,7 @@ function apply_transtoba() {
 				out.substring(x - 2, x - 1) +
 				out.substring(x);
 		}
+		console.log("apply_transtoba: out now is " + out);		
 	}
 
 	for (let x = 2; x < out.length; x++) {
@@ -259,11 +261,14 @@ function apply_transtoba() {
 				String.fromCharCode(out.charCodeAt(x - 1) - 0x20) +
 				out.substring(x);
 		}
+		console.log("apply_transtoba: out now is " + out);	
 	}
 
 	if (!toggle_whitespaces) {
 		out = out.replaceAll(" ", "");
 	}
+
+	console.log("apply_transtoba: out now is " + out);	
 
 	str_out = out;
 	/*
