@@ -30,6 +30,8 @@ function actionTextInMain() {
 	//load_ttf_fonts();
 	//build_window_layout();
 
+	str_out = input;
+
 	apply_prefilter();
 	apply_transtoba();
 	//ausgabe.setText(str_out);
