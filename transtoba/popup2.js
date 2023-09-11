@@ -109,14 +109,17 @@ function apply_prefilter() {
 	console.log("apply_prefilter: str_out is " + str_out);
 
 	if (typeof str_out !== 'string') {
+		console.log("apply_prefilter: str_out is not a string");
 		// Convert str_out to a string if it's not already
 		str_out = String(str_out);
 	}
 
+	console.log("apply_prefilter: map_prefilter_id is " + map_prefilter_id);
 	/* currently for Indonesian/English only */
 	//if (toggle_prefilter.getSelectedItem() === toggle_prefilter_opts[glid][0]) {
 	for (const [key, value] of map_prefilter_id.entries()) {
 		const regex = new RegExp(escapeRegExp(key), 'gi');
+		let prevstr_out = str_out;
 		str_out = str_out.replace(regex, (match) => {
 			// Check the case of the match and replace accordingly
 			if (match === key.toLowerCase()) {
@@ -125,8 +128,8 @@ function apply_prefilter() {
 				return value.toUpperCase();
 			}
 		});
-		console.log("apply_prefilter: map_prefilter_id is " + key + "," + value);
 	}
+	console.log("apply_prefilter: " + prevstr_out + " -> " + str_out);
 	//} else {
 	//	for (const [key, value] of map_prefilter_de.entries()) {
 	//		const regex = new RegExp(escapeRegExp(key), 'gi');
