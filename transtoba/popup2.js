@@ -181,14 +181,18 @@ function apply_transtoba() {
 
 	for (j = 0; j < tempb.length; j++) {
 
-	console.log("apply_transtoba: tempb.length is " + tempb.length + "j is now " + j);
+		console.log("apply_transtoba: tempb.length is " + tempb.length + ", j is now " + j);
 		/*
 		if (progress !== null) {
 			progress.setValue(100 - (100 / tempb.length) * j);
 			progress.paintImmediately(progress.getVisibleRect());
 		}*/
 		const tempa = tempb[j].split(/\s+/);
+
+		console.log("apply_transtoba: tempa is " + tempa);
+
 		for (i = 0; i < tempa.length; i++) {
+			console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now "+i);
 			workon = tempa[i];
 			if (!cache_keys.includes(workon)) {
 				cache = "";
