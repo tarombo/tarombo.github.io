@@ -319,9 +319,9 @@ async function read_transtoba_code() {
 		const text = await response.text();
 		const lines = text.trim().split('\n');
 		ttc = 0;
+		console.log("read_transtoba_code: no. of lines is " + line.length);
 
 		for (const line of lines) {
-			//console.log("read_transtoba_code: line is " + line);
 			result = line.trim().split(/\s+/);
 			if (result.length > 2) {
 				tt_os.push(parseInt(result[0]));
