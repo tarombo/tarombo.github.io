@@ -2,6 +2,7 @@ let map_prefilter_id = new Map();
 let map_prefilter_de = new Map();
 let str_in = "";
 let str_out = "";
+let prevstr_out = "";
 let cache_keys = []; // Initialize an empty array
 let cache_vals = []; // Initialize an empty array
 let toggle_whitespaces = false; // Initialize it as false (assuming it's initially off)
@@ -106,7 +107,6 @@ function apply_prefilter() {
 
 function apply_prefilter() {
 
-	let prevstr_out = "";
 	console.log("apply_prefilter: str_out is " + str_out);
 
 	if (typeof str_out !== 'string') {
