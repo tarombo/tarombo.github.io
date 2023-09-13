@@ -106,6 +106,7 @@ function apply_prefilter() {
 
 function apply_prefilter() {
 
+	let prevstr_out = "";
 	console.log("apply_prefilter: str_out is " + str_out);
 
 	if (typeof str_out !== 'string') {
@@ -121,7 +122,7 @@ function apply_prefilter() {
 	//if (toggle_prefilter.getSelectedItem() === toggle_prefilter_opts[glid][0]) {
 	for (const [key, value] of map_prefilter_id.entries()) {
 		const regex = new RegExp(escapeRegExp(key), 'gi');
-		let prevstr_out = str_out;
+		prevstr_out = str_out;
 		str_out = str_out.replace(regex, (match) => {
 			// Check the case of the match and replace accordingly
 			if (match === key.toLowerCase()) {
