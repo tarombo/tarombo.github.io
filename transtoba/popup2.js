@@ -319,7 +319,7 @@ async function read_transtoba_code() {
 		const text = await response.text();
 		const lines = text.trim().split('\n');
 		ttc = 0;
-		console.log("read_transtoba_code: no. of lines is " + line.length);
+		console.log("read_transtoba_code: no. of lines is " + lines.length);
 
 		for (const line of lines) {
 			result = line.trim().split(/\s+/);
