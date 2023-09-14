@@ -266,6 +266,7 @@ async function apply_transtoba() {
 						}
 					}
 					procCache(workon, cache);
+					console.log("apply_transtoba: procCache(workon, cache)="+workon+","+cache);
 				} else {
 					console.log("apply_transtoba: !cache_keys.includes(workon) is false ");
 					out += cache_vals[cache_keys.indexOf(workon)];
