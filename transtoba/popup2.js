@@ -199,7 +199,7 @@ async function apply_transtoba() {
 
 	try {
 		await read_transtoba_code();
-		
+
 		for (j = 0; j < tempb.length; j++) {
 
 			console.log("apply_transtoba: tempb.length is " + tempb.length + ", j is now " + j);
@@ -227,6 +227,7 @@ async function apply_transtoba() {
 						for (let z = 0; z < ttc && !ready; z++) {
 							console.log("read_transtoba_code: tt_os[" + z + "]=" + tt_os[z]);
 							console.log("read_transtoba_code: tt_in[" + z + "]=" + tt_in[z]);
+							console.log("read_transtoba_code: tt_in[" + z + "].chartAt(0)=" + tt_in[z].charAt(0));
 							console.log("read_transtoba_code: tt_range[" + z + "]=" + tt_range[z]);
 							if (tt_in[z].charAt(0) === '^') {
 								console.log("read_transtoba_code: tt_in[z].charAt(0) === '^'");
