@@ -41,7 +41,7 @@ function actionTextInMain() {
 	output.value = str_out;
 }
 
-async function read_prefilter(lang, map) {
+function read_prefilter(lang, map) {
 	const resourcePath = `transtoba-prefilter-${lang}.dat`;
 
 	try {
@@ -68,7 +68,7 @@ async function read_prefilter(lang, map) {
 	console.log("apply_prefilter: map.entries().length is " + map.entries().length);
 }
 
-async function readBlobAsText(blob) {
+function readBlobAsText(blob) {
 	return new Promise((resolve, reject) => {
 		const reader = new FileReader();
 
