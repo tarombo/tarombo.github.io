@@ -59,12 +59,13 @@ async function read_prefilter(lang, map) {
 			const [key, value] = line.trim().split(/\s+/);
 			if (value) {
 				map.set(key, value);
-				//console.log("read_prefilter: map is " + key + "," + value);
+				console.log("read_prefilter: map is " + key + "," + value);
 			}
 		}
 	} catch (error) {
 		console.error(error);
 	}
+	console.log("apply_prefilter: map.entries().length is " + map.entries().length);
 }
 
 async function readBlobAsText(blob) {
