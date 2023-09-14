@@ -216,14 +216,18 @@ async function apply_transtoba() {
 				console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
 				workon = tempa[i];
 				console.log("apply_transtoba: workon is " + workon);
+				console.log("read_transtoba_code: ttc=" + ttc);
 				console.log("apply_transtoba: cache_keys's length is " + cache_keys.length);
 				if (!cache_keys.includes(workon)) {
 					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
+					console.log("read_transtoba_code: tt_os is added with " + parseInt(result[0]));
 					cache = "";
 					let x = 0;
 					let ready = false;
 					while (x < workon.length) {
 						for (let z = 0; z < ttc && !ready; z++) {
+							console.log("read_transtoba_code: tt_in[" + z + "]=" + tt_in[z]);
+							console.log("read_transtoba_code: tt_range[" + z + "]=" + tt_range[z]);
 							if (tt_in[z].charAt(0) === '^') {
 								if (x === 0) {
 									if (workon.match(tt_in[z] + ".*")) {
@@ -248,6 +252,7 @@ async function apply_transtoba() {
 									ready = true;
 								}
 							}
+							console.log("read_transtoba_code: tt_out[" + z + "]=" + tt_out[z]);
 						}
 						if (!ready) {
 							out += workon.charAt(x);
