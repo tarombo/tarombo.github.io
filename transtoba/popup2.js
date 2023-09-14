@@ -117,8 +117,10 @@ function apply_prefilter() {
 		console.log("apply_prefilter: str_out is a string");
 	}
 
-	console.log("apply_prefilter: map_prefilter_id is " + map_prefilter_id);
 	prevstr_out = str_out;
+	console.log("apply_prefilter: map_prefilter_id.entries() is " + map_prefilter_id.entries());
+	console.log("apply_prefilter: prevstr_out is " + prevstr_out);
+	
 	/* currently for Indonesian/English only */
 	//if (toggle_prefilter.getSelectedItem() === toggle_prefilter_opts[glid][0]) {
 	for (const [key, value] of map_prefilter_id.entries()) {
