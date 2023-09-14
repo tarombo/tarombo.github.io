@@ -253,8 +253,9 @@ async function apply_transtoba() {
 									ready = true;
 									console.log("read_transtoba_code: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
 								}
+								console.log("read_transtoba_code: got out of matching");
 							}
-							console.log("read_transtoba_code: got out of comparing");
+							console.log("read_transtoba_code: got out of going through all data in dat");
 						}
 						if (!ready) {
 							out += workon.charAt(x);
