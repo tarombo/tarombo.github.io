@@ -356,6 +356,7 @@ async function read_transtoba_code() {
 				console.log("read_transtoba_code: tt_out is added with " + hex2asc(result[3]));
 			}
 		}
+		console.log("for (const line of lines) is done");
 	} catch (error) {
 		console.error(error);
 	}
