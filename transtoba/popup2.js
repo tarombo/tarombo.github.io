@@ -220,7 +220,7 @@ async function apply_transtoba() {
 				console.log("apply_transtoba: cache_keys's length is " + cache_keys.length);
 				if (!cache_keys.includes(workon)) {
 					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
-					console.log("read_transtoba_code: tt_os is added with " + parseInt(result[0]));
+					console.log("read_transtoba_code: tt_os[" + z + "]=" + tt_os[z]);
 					cache = "";
 					let x = 0;
 					let ready = false;
