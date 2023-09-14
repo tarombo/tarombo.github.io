@@ -252,6 +252,7 @@ async function apply_transtoba() {
 									x += tt_range[z];
 									ready = true;
 									console.log("read_transtoba_code: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
+									console.log("read_transtoba_code: about to go out of matching");
 								}
 								console.log("read_transtoba_code: got out of matching");
 							}
