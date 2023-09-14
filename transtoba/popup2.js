@@ -220,12 +220,12 @@ async function apply_transtoba() {
 				console.log("apply_transtoba: cache_keys's length is " + cache_keys.length);
 				if (!cache_keys.includes(workon)) {
 					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
-					console.log("read_transtoba_code: tt_os[" + z + "]=" + tt_os[z]);
 					cache = "";
 					let x = 0;
 					let ready = false;
 					while (x < workon.length) {
 						for (let z = 0; z < ttc && !ready; z++) {
+							console.log("read_transtoba_code: tt_os[" + z + "]=" + tt_os[z]);
 							console.log("read_transtoba_code: tt_in[" + z + "]=" + tt_in[z]);
 							console.log("read_transtoba_code: tt_range[" + z + "]=" + tt_range[z]);
 							if (tt_in[z].charAt(0) === '^') {
