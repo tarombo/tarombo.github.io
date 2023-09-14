@@ -212,23 +212,20 @@ async function apply_transtoba() {
 
 			console.log("apply_transtoba: tempa is " + tempa);
 
-			for (i = 0; i < tempa.length; i++) {
+			for (i = 0; i < tempa.length; i++) { // go through each character in the input text
 				console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
 				workon = tempa[i];
-				console.log("apply_transtoba: workon is " + workon);
+				console.log("read_transtoba_code: workon is " + workon);
 				console.log("read_transtoba_code: ttc=" + ttc);
-				console.log("apply_transtoba: cache_keys's length = " + cache_keys.length);
+				console.log("read_transtoba_code: cache_keys's length = " + cache_keys.length);
 				if (!cache_keys.includes(workon)) {
-					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
+					console.log("read_transtoba_code: !cache_keys.includes(workon) is true ");
 					cache = "";
 					let x = 0;
 					let ready = false;
 					while (x < workon.length) {
-						for (let z = 0; z < ttc && !ready; z++) {
-							console.log("read_transtoba_code: tt_os[" + z + "]=" + tt_os[z]);
-							console.log("read_transtoba_code: tt_in[" + z + "]=" + tt_in[z]);
-							console.log("read_transtoba_code:  tt_in[" + z + "].chartAt(0)=" + tt_in[z].charAt(0));
-							console.log("read_transtoba_code: tt_range[" + z + "]=" + tt_range[z]);
+						for (let z = 0; z < ttc && !ready; z++) { // go through each data in transtoba-code.data to compare with the character
+							console.log("read_transtoba_code: tt_os[" + z + "]=" + tt_os[z] + ", tt_in[" + z + "]=" + tt_in[z] + ", tt_in[" + z + "].chartAt(0)=" + tt_in[z].charAt(0) + ", tt_range[" + z + "]=" + tt_range[z]);
 							if (tt_in[z].charAt(0) === '^') {
 								console.log("read_transtoba_code: tt_in[z].charAt(0) === '^'");
 								if (x === 0) {
@@ -244,7 +241,7 @@ async function apply_transtoba() {
 								workon.length > x + tt_os[z] &&
 								x + tt_os[z] >= 0
 							) {
-								console.log("workon.length > x + tt_os[z] && x + tt_os[z] >= 0");
+								console.log("read_transtoba_code: workon.length > x + tt_os[z] && x + tt_os[z] >= 0");
 								if (
 									workon.substring(x + tt_os[z]).match(
 										"^" + tt_in[z] + ".*"
@@ -254,20 +251,21 @@ async function apply_transtoba() {
 									cache += tt_out[z];
 									x += tt_range[z];
 									ready = true;
-									console.log("workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
+									console.log("read_transtoba_code: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
 								}
 							}
+							console.log("read_transtoba_code: got out of comparing");
 						}
 						if (!ready) {
 							out += workon.charAt(x);
-							console.log("if (!ready), not ready, out=" + out);
+							console.log("read_transtoba_code: if (!ready), not ready, out=" + out);
 							cache += workon.charAt(x);
 							x += 1;
 						}
 					}
 					procCache(workon, cache);
 				} else {
-					console.log("apply_transtoba: !cache_keys.includes(workon) is false ");
+					console.log("read_transtoba_code: !cache_keys.includes(workon) is false ");
 					out += cache_vals[cache_keys.indexOf(workon)];
 					procCache(workon, cache_vals[cache_keys.indexOf(workon)]);
 				}
@@ -352,7 +350,7 @@ async function read_transtoba_code() {
 		const lines = text.trim().split('\n');
 		//console.log("read_transtoba_code: text is " + text);
 		ttc = 0;
-		console.log("read_transtoba_code: no. of lines is " + lines.length);
+		console.log("read_transtoba_code: no. of lines in transtoba-code.dat is " + lines.length);
 
 		for (const line of lines) {
 			result = line.trim().split(/\s+/);
