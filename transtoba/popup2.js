@@ -229,6 +229,7 @@ async function apply_transtoba() {
 							console.log("read_transtoba_code: tt_in[" + z + "]=" + tt_in[z]);
 							console.log("read_transtoba_code: tt_range[" + z + "]=" + tt_range[z]);
 							if (tt_in[z].charAt(0) === '^') {
+								console.log("read_transtoba_code: tt_in[z].charAt(0) === '^'");
 								if (x === 0) {
 									if (workon.match(tt_in[z] + ".*")) {
 										out += tt_out[z];
@@ -241,6 +242,7 @@ async function apply_transtoba() {
 								workon.length > x + tt_os[z] &&
 								x + tt_os[z] >= 0
 							) {
+								console.log("workon.length > x + tt_os[z] && x + tt_os[z] >= 0");
 								if (
 									workon.substring(x + tt_os[z]).match(
 										"^" + tt_in[z] + ".*"
@@ -345,7 +347,7 @@ async function read_transtoba_code() {
 
 		const text = await response.text();
 		const lines = text.trim().split('\n');
-		console.log("read_transtoba_code: text is " + text);
+		//console.log("read_transtoba_code: text is " + text);
 		ttc = 0;
 		console.log("read_transtoba_code: no. of lines is " + lines.length);
 
