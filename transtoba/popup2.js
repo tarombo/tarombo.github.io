@@ -224,6 +224,7 @@ async function apply_transtoba() {
 					let x = 0;
 					let ready = false;
 					while (x < workon.length) {
+						console.log("apply_transtoba: x=" + x);
 						for (let z = 0; z < ttc && !ready; z++) { // go through each data in transtoba-code.data to compare with the character
 							console.log("apply_transtoba: tt_os[" + z + "]=" + tt_os[z] + ", tt_in[" + z + "]=" + tt_in[z] + ", tt_in[" + z + "].chartAt(0)=" + tt_in[z].charAt(0) + ", tt_range[" + z + "]=" + tt_range[z]);
 							if (tt_in[z].charAt(0) === '^') {
