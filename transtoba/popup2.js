@@ -256,8 +256,8 @@ async function apply_transtoba() {
 								}
 								console.log("apply_transtoba: got out of matching");
 							}
-							console.log("apply_transtoba: got out of going through all data in dat");
 						}
+						console.log("apply_transtoba: got out of going through all data in dat");
 						if (!ready) {
 							out += workon.charAt(x);
 							console.log("apply_transtoba: if (!ready), not ready, out=" + out);
