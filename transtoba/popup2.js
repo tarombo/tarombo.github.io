@@ -350,7 +350,7 @@ async function read_transtoba_code() {
 				tt_in.push(result[2]);
 				tt_out.push(hex2asc(result[3]));
 				ttc++;
-				console.log("read_transtoba_code: tt_os is added with " + push(parseInt(result[0])));
+				console.log("read_transtoba_code: tt_os is added with " + parseInt(result[0]));
 				console.log("read_transtoba_code: tt_range is added with " + parseInt(result[1]));
 				console.log("read_transtoba_code: tt_in is added with " + result[2]);
 				console.log("read_transtoba_code: tt_out is added with " + hex2asc(result[3]));
