@@ -27,8 +27,8 @@ function actionTextInMain() {
 
 	console.log("actionTextInMain: input is " + input);
 
-	read_prefilter("de", map_prefilter_de);
-	read_prefilter("id", map_prefilter_id);
+	//read_prefilter("de", map_prefilter_de);
+	//read_prefilter("id", map_prefilter_id);
 	read_transtoba_code();
 	//load_ttf_fonts();
 	//build_window_layout();
@@ -41,7 +41,7 @@ function actionTextInMain() {
 	output.value = str_out;
 }
 
-function read_prefilter(lang, map) {
+async function read_prefilter(lang, map) {
 	const resourcePath = `transtoba-prefilter-${lang}.dat`;
 
 	try {
@@ -68,7 +68,7 @@ function read_prefilter(lang, map) {
 	console.log("apply_prefilter: map.entries().length is " + map.entries().length);
 }
 
-function readBlobAsText(blob) {
+async function readBlobAsText(blob) {
 	return new Promise((resolve, reject) => {
 		const reader = new FileReader();
 
@@ -106,7 +106,7 @@ function apply_prefilter() {
 }
 */
 
-function apply_prefilter() {
+async function apply_prefilter() {
 
 	console.log("apply_prefilter: str_out is " + str_out);
 
@@ -124,18 +124,29 @@ function apply_prefilter() {
 
 	/* currently for Indonesian/English only */
 	//if (toggle_prefilter.getSelectedItem() === toggle_prefilter_opts[glid][0]) {
-	for (const [key, value] of map_prefilter_id.entries()) {
-		const regex = new RegExp(escapeRegExp(key), 'gi');
-		console.log("apply_prefilter: RegExp(escapeRegExp(key), 'gi') is " + regex);
-		str_out = str_out.replace(regex, (match) => {
-			// Check the case of the match and replace accordingly
-			if (match === key.toLowerCase()) {
-				return value.toLowerCase();
-			} else {
-				return value.toUpperCase();
-			}
-		});
+	try {
+		// Assuming lang is a variable with the desired language
+		await read_prefilter("id", map_prefilter_id);
+
+		// Now you can safely iterate over map_prefilter_id
+		for (const [key, value] of map_prefilter_id.entries()) {
+			const regex = new RegExp(escapeRegExp(key), 'gi');
+			console.log("apply_prefilter: RegExp(escapeRegExp(key), 'gi') is " + regex);
+			str_out = str_out.replace(regex, (match) => {
+				// Check the case of the match and replace accordingly
+				if (match === key.toLowerCase()) {
+					return value.toLowerCase();
+				} else {
+					return value.toUpperCase();
+				}
+			});
+		}
+
+		console.log("apply_prefilter: " + prevstr_out + " -> " + str_out);
+	} catch (error) {
+		console.error(error);
 	}
+
 	console.log("apply_prefilter: " + prevstr_out + " -> " + str_out);
 	//} else {
 	//	for (const [key, value] of map_prefilter_de.entries()) {
@@ -202,7 +213,7 @@ function apply_transtoba() {
 		console.log("apply_transtoba: tempa is " + tempa);
 
 		for (i = 0; i < tempa.length; i++) {
-			console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now "+i);
+			console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
 			workon = tempa[i];
 			if (!cache_keys.includes(workon)) {
 				cache = "";
