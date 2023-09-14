@@ -252,7 +252,7 @@ async function apply_transtoba() {
 									cache += tt_out[z];
 									x += tt_range[z];
 									ready = true;
-									console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
+									console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out + ", x="+x);
 									console.log("apply_transtoba: about to go out of matching");
 								}
 								console.log("apply_transtoba: got out of matching");
