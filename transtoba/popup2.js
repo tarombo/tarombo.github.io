@@ -237,7 +237,7 @@ async function apply_transtoba() {
 										cache += tt_out[z];
 										x += tt_range[z];
 										ready = true;
-										console.log("read_transtoba_code: tt_in[z].charAt(0) === '^', out=" + out);
+										console.log("read_transtoba_code: tt_in[z].charAt(0) === '^', now ready, out=" + out);
 									}
 								}
 							} else if (
@@ -254,13 +254,13 @@ async function apply_transtoba() {
 									cache += tt_out[z];
 									x += tt_range[z];
 									ready = true;
-									console.log("workon.length > x + tt_os[z] && x + tt_os[z] >= 0, out=" + out);
+									console.log("workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
 								}
 							}
 						}
 						if (!ready) {
 							out += workon.charAt(x);
-							console.log("if (!ready), out=" + out);
+							console.log("if (!ready), not ready, out=" + out);
 							cache += workon.charAt(x);
 							x += 1;
 						}
