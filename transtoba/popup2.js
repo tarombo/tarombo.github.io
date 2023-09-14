@@ -38,7 +38,7 @@ async function actionTextInMain() {
 	await apply_prefilter();
 	await apply_transtoba();
 	//ausgabe.setText(str_out);
-	output.value = str_out;
+	//output.value = str_out;
 }
 
 async function read_prefilter(lang, map) {
@@ -65,7 +65,7 @@ async function read_prefilter(lang, map) {
 	} catch (error) {
 		console.error(error);
 	}
-	console.log("apply_prefilter: map.entries().length is " + map.entries().length);
+	console.log("apply_prefilter: map.entries.length is " + map.entries.length);
 }
 
 async function readBlobAsText(blob) {
@@ -127,8 +127,6 @@ async function apply_prefilter() {
 		// Assuming lang is a variable with the desired language
 		await read_prefilter("id", map_prefilter_id);
 
-		console.log("apply_prefilter: map_prefilter_id.entries's length is " + map_prefilter_id.entries.length);
-
 		// Now you can safely iterate over map_prefilter_id
 		for (const [key, value] of map_prefilter_id.entries()) {
 			const regex = new RegExp(escapeRegExp(key), 'gi');
@@ -142,8 +140,6 @@ async function apply_prefilter() {
 				}
 			});
 		}
-
-		console.log("apply_prefilter: " + prevstr_out + " -> " + str_out);
 	} catch (error) {
 		console.error(error);
 	}
@@ -219,6 +215,8 @@ async function apply_transtoba() {
 			for (i = 0; i < tempa.length; i++) {
 				console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
 				workon = tempa[i];
+				console.log("apply_transtoba: workon is " + workon);
+				console.log("apply_transtoba: cache_keys is " + cache_keys);
 				if (!cache_keys.includes(workon)) {
 					cache = "";
 					let x = 0;
