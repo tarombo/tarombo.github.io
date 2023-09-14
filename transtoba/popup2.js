@@ -218,6 +218,7 @@ async function apply_transtoba() {
 				console.log("apply_transtoba: workon is " + workon);
 				console.log("apply_transtoba: cache_keys's length is " + cache_keys.length);
 				if (!cache_keys.includes(workon)) {
+					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
 					cache = "";
 					let x = 0;
 					let ready = false;
@@ -256,6 +257,7 @@ async function apply_transtoba() {
 					}
 					procCache(workon, cache);
 				} else {
+					console.log("apply_transtoba: !cache_keys.includes(workon) is false ");
 					out += cache_vals[cache_keys.indexOf(workon)];
 					procCache(workon, cache_vals[cache_keys.indexOf(workon)]);
 				}
@@ -338,6 +340,7 @@ async function read_transtoba_code() {
 
 		const text = await response.text();
 		const lines = text.trim().split('\n');
+		console.log("read_transtoba_code: text is " + text);
 		ttc = 0;
 		console.log("read_transtoba_code: no. of lines is " + lines.length);
 
