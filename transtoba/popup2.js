@@ -18,7 +18,7 @@ let ttc; // Define ttc as an integer variable
 let pfc; // Define pfc as an integer variable
 
 
-function actionTextInMain() {
+async function actionTextInMain() {
 
 	console.clear();
 
@@ -29,14 +29,14 @@ function actionTextInMain() {
 
 	//read_prefilter("de", map_prefilter_de);
 	//read_prefilter("id", map_prefilter_id);
-	read_transtoba_code();
+	//read_transtoba_code();
 	//load_ttf_fonts();
 	//build_window_layout();
 
 	str_out = input;
 
-	apply_prefilter();
-	apply_transtoba();
+	await apply_prefilter();
+	await apply_transtoba();
 	//ausgabe.setText(str_out);
 	output.value = str_out;
 }
@@ -119,7 +119,6 @@ async function apply_prefilter() {
 	}
 
 	prevstr_out = str_out;
-	console.log("apply_prefilter: map_prefilter_id.entries()'s length is " + map_prefilter_id.entries().length);
 	console.log("apply_prefilter: prevstr_out is " + prevstr_out);
 
 	/* currently for Indonesian/English only */
@@ -127,6 +126,8 @@ async function apply_prefilter() {
 	try {
 		// Assuming lang is a variable with the desired language
 		await read_prefilter("id", map_prefilter_id);
+
+		console.log("apply_prefilter: map_prefilter_id.entries's length is " + map_prefilter_id.entries.length);
 
 		// Now you can safely iterate over map_prefilter_id
 		for (const [key, value] of map_prefilter_id.entries()) {
@@ -187,7 +188,7 @@ function procCache(k, v) {
 	}
 }
 
-function apply_transtoba() {
+async function apply_transtoba() {
 	let out = "";
 	let temp = "";
 	let workon = "";
@@ -200,106 +201,112 @@ function apply_transtoba() {
 	let tempb = String(str_out).toUpperCase().split("\n");
 	console.log("apply_transtoba: tempb is " + tempb);
 
-	for (j = 0; j < tempb.length; j++) {
+	try {
+		await read_transtoba_code();
+		
+		for (j = 0; j < tempb.length; j++) {
 
-		console.log("apply_transtoba: tempb.length is " + tempb.length + ", j is now " + j);
-		/*
-		if (progress !== null) {
-			progress.setValue(100 - (100 / tempb.length) * j);
-			progress.paintImmediately(progress.getVisibleRect());
-		}*/
-		const tempa = tempb[j].split(/\s+/);
+			console.log("apply_transtoba: tempb.length is " + tempb.length + ", j is now " + j);
+			/*
+			if (progress !== null) {
+				progress.setValue(100 - (100 / tempb.length) * j);
+				progress.paintImmediately(progress.getVisibleRect());
+			}*/
+			const tempa = tempb[j].split(/\s+/);
 
-		console.log("apply_transtoba: tempa is " + tempa);
+			console.log("apply_transtoba: tempa is " + tempa);
 
-		for (i = 0; i < tempa.length; i++) {
-			console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
-			workon = tempa[i];
-			if (!cache_keys.includes(workon)) {
-				cache = "";
-				let x = 0;
-				let ready = false;
-				while (x < workon.length) {
-					for (let z = 0; z < ttc && !ready; z++) {
-						if (tt_in[z].charAt(0) === '^') {
-							if (x === 0) {
-								if (workon.match(tt_in[z] + ".*")) {
+			for (i = 0; i < tempa.length; i++) {
+				console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
+				workon = tempa[i];
+				if (!cache_keys.includes(workon)) {
+					cache = "";
+					let x = 0;
+					let ready = false;
+					while (x < workon.length) {
+						for (let z = 0; z < ttc && !ready; z++) {
+							if (tt_in[z].charAt(0) === '^') {
+								if (x === 0) {
+									if (workon.match(tt_in[z] + ".*")) {
+										out += tt_out[z];
+										cache += tt_out[z];
+										x += tt_range[z];
+										ready = true;
+									}
+								}
+							} else if (
+								workon.length > x + tt_os[z] &&
+								x + tt_os[z] >= 0
+							) {
+								if (
+									workon.substring(x + tt_os[z]).match(
+										"^" + tt_in[z] + ".*"
+									)
+								) {
 									out += tt_out[z];
 									cache += tt_out[z];
 									x += tt_range[z];
 									ready = true;
 								}
 							}
-						} else if (
-							workon.length > x + tt_os[z] &&
-							x + tt_os[z] >= 0
-						) {
-							if (
-								workon.substring(x + tt_os[z]).match(
-									"^" + tt_in[z] + ".*"
-								)
-							) {
-								out += tt_out[z];
-								cache += tt_out[z];
-								x += tt_range[z];
-								ready = true;
-							}
+						}
+						if (!ready) {
+							out += workon.charAt(x);
+							cache += workon.charAt(x);
+							x += 1;
 						}
 					}
-					if (!ready) {
-						out += workon.charAt(x);
-						cache += workon.charAt(x);
-						x += 1;
-					}
+					procCache(workon, cache);
+				} else {
+					out += cache_vals[cache_keys.indexOf(workon)];
+					procCache(workon, cache_vals[cache_keys.indexOf(workon)]);
 				}
-				procCache(workon, cache);
-			} else {
-				out += cache_vals[cache_keys.indexOf(workon)];
-				procCache(workon, cache_vals[cache_keys.indexOf(workon)]);
+				out += " ";
 			}
-			out += " ";
+			out += "\n";
+
+			console.log("apply_transtoba: tempa is " + tempa);
+			console.log("apply_transtoba: out is " + out);
 		}
-		out += "\n";
 
-		console.log("apply_transtoba: tempa is " + tempa);
-		console.log("apply_transtoba: out is " + out);
-	}
-
-	for (let x = 3; x < out.length; x++) {
-		if (
-			toba_is_konsonant(out.charAt(x - 3)) &&
-			toba_is_konsonant(out.charAt(x - 1)) &&
-			toba_is_diacritic(out.charAt(x - 2)) &&
-			toba_is_diacritic(out.charAt(x)) &&
-			out.charAt(x - 2) !== String.fromCharCode(0x5C) &&
-			out.charAt(x) === String.fromCharCode(0x5C)
-		) {
-			out =
-				out.substring(0, x - 2) +
-				out.substring(x - 1, x - 0) +
-				out.substring(x - 2, x - 1) +
-				out.substring(x);
+		for (let x = 3; x < out.length; x++) {
+			if (
+				toba_is_konsonant(out.charAt(x - 3)) &&
+				toba_is_konsonant(out.charAt(x - 1)) &&
+				toba_is_diacritic(out.charAt(x - 2)) &&
+				toba_is_diacritic(out.charAt(x)) &&
+				out.charAt(x - 2) !== String.fromCharCode(0x5C) &&
+				out.charAt(x) === String.fromCharCode(0x5C)
+			) {
+				out =
+					out.substring(0, x - 2) +
+					out.substring(x - 1, x - 0) +
+					out.substring(x - 2, x - 1) +
+					out.substring(x);
+			}
+			console.log("apply_transtoba: out now is " + out);
 		}
-		console.log("apply_transtoba: out now is " + out);
-	}
 
-	for (let x = 2; x < out.length; x++) {
-		if (
-			toba_is_konsonant_u(out.charAt(x - 2)) &&
-			toba_is_konsonant(out.charAt(x - 1)) &&
-			out.charAt(x) === String.fromCharCode(0x5C)
-		) {
-			out =
-				out.substring(0, x - 2) +
-				String.fromCharCode(out.charCodeAt(x - 2) + 0x20) +
-				String.fromCharCode(out.charCodeAt(x - 1) - 0x20) +
-				out.substring(x);
+		for (let x = 2; x < out.length; x++) {
+			if (
+				toba_is_konsonant_u(out.charAt(x - 2)) &&
+				toba_is_konsonant(out.charAt(x - 1)) &&
+				out.charAt(x) === String.fromCharCode(0x5C)
+			) {
+				out =
+					out.substring(0, x - 2) +
+					String.fromCharCode(out.charCodeAt(x - 2) + 0x20) +
+					String.fromCharCode(out.charCodeAt(x - 1) - 0x20) +
+					out.substring(x);
+			}
+			console.log("apply_transtoba: out now is " + out);
 		}
-		console.log("apply_transtoba: out now is " + out);
-	}
 
-	if (!toggle_whitespaces) {
-		out = out.replaceAll(" ", "");
+		if (!toggle_whitespaces) {
+			out = out.replaceAll(" ", "");
+		}
+	} catch (error) {
+		console.error(error);
 	}
 
 	console.log("apply_transtoba: out now is " + out);
