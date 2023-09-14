@@ -217,7 +217,7 @@ async function apply_transtoba() {
 				workon = tempa[i];
 				console.log("apply_transtoba: workon is " + workon);
 				console.log("read_transtoba_code: ttc=" + ttc);
-				console.log("apply_transtoba: cache_keys's length is " + cache_keys.length);
+				console.log("apply_transtoba: cache_keys's length = " + cache_keys.length);
 				if (!cache_keys.includes(workon)) {
 					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
 					cache = "";
