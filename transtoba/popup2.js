@@ -118,11 +118,12 @@ function apply_prefilter() {
 	}
 
 	console.log("apply_prefilter: map_prefilter_id is " + map_prefilter_id);
+	prevstr_out = str_out;
 	/* currently for Indonesian/English only */
 	//if (toggle_prefilter.getSelectedItem() === toggle_prefilter_opts[glid][0]) {
 	for (const [key, value] of map_prefilter_id.entries()) {
 		const regex = new RegExp(escapeRegExp(key), 'gi');
-		prevstr_out = str_out;
+		console.log("apply_prefilter: RegExp(escapeRegExp(key), 'gi') is " + regex);
 		str_out = str_out.replace(regex, (match) => {
 			// Check the case of the match and replace accordingly
 			if (match === key.toLowerCase()) {
