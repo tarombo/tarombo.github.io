@@ -38,7 +38,7 @@ async function actionTextInMain() {
 	await apply_prefilter();
 	await apply_transtoba();
 	//ausgabe.setText(str_out);
-	//output.value = str_out;
+	output.value = str_out;
 }
 
 async function read_prefilter(lang, map) {
@@ -286,7 +286,7 @@ async function apply_transtoba() {
 			out += "\n";
 
 			console.log("apply_transtoba: tempa is " + tempa);
-			console.log("apply_transtoba: out is " + out);
+			console.log("apply_transtoba: out after regex is " + out);
 		}
 
 		for (let x = 3; x < out.length; x++) {
@@ -304,7 +304,7 @@ async function apply_transtoba() {
 					out.substring(x - 2, x - 1) +
 					out.substring(x);
 			}
-			console.log("apply_transtoba: out now is " + out);
+			console.log("apply_transtoba: out after toba_is_konsonant 1 is " + out);
 		}
 
 		for (let x = 2; x < out.length; x++) {
@@ -319,7 +319,7 @@ async function apply_transtoba() {
 					String.fromCharCode(out.charCodeAt(x - 1) - 0x20) +
 					out.substring(x);
 			}
-			console.log("apply_transtoba: out now is " + out);
+			console.log("apply_transtoba: out after toba_is_konsonant 2 is " + out);
 		}
 
 		if (!toggle_whitespaces) {
@@ -329,7 +329,7 @@ async function apply_transtoba() {
 		console.error(error);
 	}
 
-	console.log("apply_transtoba: out now is " + out);
+	console.log("apply_transtoba: out finally is " + out);
 
 	str_out = out;
 	/*
