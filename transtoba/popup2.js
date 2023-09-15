@@ -218,10 +218,11 @@ async function apply_transtoba() {
 				console.log("apply_transtoba: workon is " + workon);
 				console.log("apply_transtoba: ttc=" + ttc);
 				console.log("apply_transtoba: cache_keys's length = " + cache_keys.length);
+
+				let x = 0;
 				if (!cache_keys.includes(workon)) {
 					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
 					cache = "";
-					let x = 0;
 					let ready = false;
 					while (x < workon.length) {
 						console.log("apply_transtoba: x=" + x);
@@ -254,7 +255,7 @@ async function apply_transtoba() {
 									x += tt_range[z];
 									console.log("apply_transtoba: x += tt_range[z]="+x);
 									ready = true;
-									console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out + ", x="+x);
+									console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
 									console.log("apply_transtoba: about to go out of matching");
 								}
 								console.log("apply_transtoba: got out of matching");
