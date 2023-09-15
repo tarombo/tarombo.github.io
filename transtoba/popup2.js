@@ -25,7 +25,7 @@ async function actionTextInMain() {
 	let input = document.getElementById('input').value;
 	let output = document.getElementById('output');
 
-	console.log("actionTextInMain: input is " + input);
+	//console.log("actionTextInMain: input is " + input);
 
 	//read_prefilter("de", map_prefilter_de);
 	//read_prefilter("id", map_prefilter_id);
@@ -59,13 +59,13 @@ async function read_prefilter(lang, map) {
 			const [key, value] = line.trim().split(/\s+/);
 			if (value) {
 				map.set(key, value);
-				console.log("read_prefilter: map is " + key + "," + value);
+				//console.log("read_prefilter: map is " + key + "," + value);
 			}
 		}
 	} catch (error) {
 		console.error(error);
 	}
-	console.log("apply_prefilter: map.entries.length is " + map.entries.length);
+	//console.log("apply_prefilter: map.entries.length is " + map.entries.length);
 }
 
 async function readBlobAsText(blob) {
@@ -108,18 +108,17 @@ function apply_prefilter() {
 
 async function apply_prefilter() {
 
-	console.log("apply_prefilter: str_out is " + str_out);
+	//console.log("apply_prefilter: str_out is " + str_out);
 
 	if (typeof str_out !== 'string') {
-		console.log("apply_prefilter: str_out is not a string");
 		// Convert str_out to a string if it's not already
 		str_out = String(str_out);
 	} else {
-		console.log("apply_prefilter: str_out is a string");
+		//console.log("apply_prefilter: str_out is a string");
 	}
 
 	prevstr_out = str_out;
-	console.log("apply_prefilter: prevstr_out is " + prevstr_out);
+	//console.log("apply_prefilter: prevstr_out is " + prevstr_out);
 
 	/* currently for Indonesian/English only */
 	//if (toggle_prefilter.getSelectedItem() === toggle_prefilter_opts[glid][0]) {
@@ -195,14 +194,14 @@ async function apply_transtoba() {
 	let j = 0;
 
 	let tempb = String(str_out).toUpperCase().split("\n");
-	console.log("apply_transtoba: tempb is " + tempb);
+	//console.log("apply_transtoba: tempb is " + tempb);
 
 	try {
 		await read_transtoba_code();
 
 		for (j = 0; j < tempb.length; j++) {
 
-			console.log("apply_transtoba: tempb.length is " + tempb.length + ", j is now " + j);
+			//console.log("apply_transtoba: tempb.length is " + tempb.length + ", j is now " + j);
 			/*
 			if (progress !== null) {
 				progress.setValue(100 - (100 / tempb.length) * j);
@@ -210,14 +209,12 @@ async function apply_transtoba() {
 			}*/
 			const tempa = tempb[j].split(/\s+/);
 
-			console.log("apply_transtoba: tempa is " + tempa);
+			//console.log("apply_transtoba: tempa is " + tempa);
 
 			for (i = 0; i < tempa.length; i++) { // go through each character in the input text
 				console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
 				workon = tempa[i];
-				console.log("apply_transtoba: workon is " + workon);
-				console.log("apply_transtoba: ttc=" + ttc);
-				console.log("apply_transtoba: cache_keys's length = " + cache_keys.length);
+				//console.log("apply_transtoba: workon is " + workon + ", ttc="+ttc+", cache_keys's length = " + cache_keys.length);
 
 				if (!cache_keys.includes(workon)) {
 					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
@@ -225,28 +222,26 @@ async function apply_transtoba() {
 
 					let x = 0;
 					while (x < workon.length) {
-						console.log("apply_transtoba: x=" + x);
+						//console.log("apply_transtoba: x=" + x);
 						let ready = false;
 						for (let z = 0; z < ttc && !ready; z++) { // go through each data in transtoba-code.data to compare with the character
 							console.log("apply_transtoba: tt_os[" + z + "]=" + tt_os[z] + ", tt_in[" + z + "]=" + tt_in[z] + ", tt_in[" + z + "].chartAt(0)=" + tt_in[z].charAt(0) + ", tt_range[" + z + "]=" + tt_range[z]);
 							if (tt_in[z].charAt(0) === '^') {
-								console.log("apply_transtoba: tt_in[z].charAt(0) === '^'");
+								//console.log("apply_transtoba: tt_in[z].charAt(0) === '^'");
 								if (x === 0) {
 									if (workon.match(tt_in[z] + ".*")) {
 										out += tt_out[z];
 										cache += tt_out[z];
 										x += tt_range[z];
-										console.log("apply_transtoba: ready = " + ready);
 										ready = true;
-										console.log("apply_transtoba: ready = " + ready);
-										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready="+ready+", out=" + out);
+										//console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready="+ready+", out=" + out);
 									}
 								}
 							} else if (
 								workon.length > x + tt_os[z] &&
 								x + tt_os[z] >= 0
 							) {
-								console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0");
+								//console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0");
 								if (
 									workon.substring(x + tt_os[z]).match(
 										"^" + tt_in[z] + ".*"
@@ -254,30 +249,25 @@ async function apply_transtoba() {
 								) {
 									out += tt_out[z];
 									cache += tt_out[z];
-									console.log("apply_transtoba: x="+x+", tt_range[z]="+tt_range[z]);
+									//console.log("apply_transtoba: x="+x+", tt_range[z]="+tt_range[z]);
 									x += tt_range[z];
-									console.log("apply_transtoba: x += tt_range[z]="+x);
-									console.log("apply_transtoba: ready = " + ready);
+									//console.log("apply_transtoba: x += tt_range[z]="+x);
 									ready = true;
-									console.log("apply_transtoba: ready = " + ready);
-									console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
-									console.log("apply_transtoba: about to go out of matching");
+									//console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
 								}
-								console.log("apply_transtoba: got out of matching");
 							}
 						}
-						console.log("apply_transtoba: got out of going through all data in dat, x="+x);
 						if (!ready) {
 							out += workon.charAt(x);
-							console.log("apply_transtoba: if (!ready), not ready, out=" + out);
+							//console.log("apply_transtoba: if (!ready), not ready, out=" + out);
 							cache += workon.charAt(x);
 							x += 1;
 						}
 					}
 					procCache(workon, cache);
-					console.log("apply_transtoba: procCache(workon, cache)="+workon+","+cache);
+					//console.log("apply_transtoba: procCache(workon, cache)="+workon+","+cache);
 				} else {
-					console.log("apply_transtoba: !cache_keys.includes(workon) is false ");
+					//console.log("apply_transtoba: !cache_keys.includes(workon) is false ");
 					out += cache_vals[cache_keys.indexOf(workon)];
 					procCache(workon, cache_vals[cache_keys.indexOf(workon)]);
 				}
@@ -285,8 +275,7 @@ async function apply_transtoba() {
 			}
 			out += "\n";
 
-			console.log("apply_transtoba: tempa is " + tempa);
-			console.log("apply_transtoba: out after regex is " + out);
+			//console.log("apply_transtoba: tempa is " + tempa+", out after regex is " + out);
 		}
 
 		for (let x = 3; x < out.length; x++) {
@@ -304,7 +293,6 @@ async function apply_transtoba() {
 					out.substring(x - 2, x - 1) +
 					out.substring(x);
 			}
-			console.log("apply_transtoba: out after toba_is_konsonant 1 is " + out);
 		}
 
 		for (let x = 2; x < out.length; x++) {
@@ -319,7 +307,6 @@ async function apply_transtoba() {
 					String.fromCharCode(out.charCodeAt(x - 1) - 0x20) +
 					out.substring(x);
 			}
-			console.log("apply_transtoba: out after toba_is_konsonant 2 is " + out);
 		}
 
 		if (!toggle_whitespaces) {
@@ -329,7 +316,7 @@ async function apply_transtoba() {
 		console.error(error);
 	}
 
-	console.log("apply_transtoba: out finally is " + out);
+	//console.log("apply_transtoba: out finally is " + out);
 
 	str_out = out;
 	/*
@@ -362,7 +349,7 @@ async function read_transtoba_code() {
 		const lines = text.trim().split('\n');
 		//console.log("read_transtoba_code: text is " + text);
 		ttc = 0;
-		console.log("read_transtoba_code: no. of lines in transtoba-code.dat is " + lines.length);
+		//console.log("read_transtoba_code: no. of lines in transtoba-code.dat is " + lines.length);
 
 		for (const line of lines) {
 			result = line.trim().split(/\s+/);
@@ -379,7 +366,7 @@ async function read_transtoba_code() {
 				//console.log("read_transtoba_code: tt_out is added with " + hex2asc(result[3]));
 			}
 		}
-		console.log("read_transtoba_code: for (const line of lines) is done");
+		//console.log("read_transtoba_code: for (const line of lines) is done");
 	} catch (error) {
 		console.error(error);
 	}
