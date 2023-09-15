@@ -212,6 +212,7 @@ async function apply_transtoba() {
 
 			console.log("apply_transtoba: tempa is " + tempa);
 
+			let x = 0;
 			for (i = 0; i < tempa.length; i++) { // go through each character in the input text
 				console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
 				workon = tempa[i];
@@ -219,7 +220,6 @@ async function apply_transtoba() {
 				console.log("apply_transtoba: ttc=" + ttc);
 				console.log("apply_transtoba: cache_keys's length = " + cache_keys.length);
 
-				let x = 0;
 				if (!cache_keys.includes(workon)) {
 					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
 					cache = "";
