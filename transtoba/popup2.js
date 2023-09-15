@@ -238,6 +238,7 @@ async function apply_transtoba() {
 										x += tt_range[z];
 										console.log("apply_transtoba: ready = " + ready);
 										ready = true;
+										console.log("apply_transtoba: ready = " + ready);
 										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready="+ready+", out=" + out);
 									}
 								}
@@ -258,6 +259,7 @@ async function apply_transtoba() {
 									console.log("apply_transtoba: x += tt_range[z]="+x);
 									console.log("apply_transtoba: ready = " + ready);
 									ready = true;
+									console.log("apply_transtoba: ready = " + ready);
 									console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
 									console.log("apply_transtoba: about to go out of matching");
 								}
