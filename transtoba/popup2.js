@@ -212,7 +212,6 @@ async function apply_transtoba() {
 
 			console.log("apply_transtoba: tempa is " + tempa);
 
-			let x = 0;
 			for (i = 0; i < tempa.length; i++) { // go through each character in the input text
 				console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
 				workon = tempa[i];
@@ -224,6 +223,8 @@ async function apply_transtoba() {
 					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
 					cache = "";
 					let ready = false;
+
+					let x = 0;
 					while (x < workon.length) {
 						console.log("apply_transtoba: x=" + x);
 						for (let z = 0; z < ttc && !ready; z++) { // go through each data in transtoba-code.data to compare with the character
@@ -235,8 +236,9 @@ async function apply_transtoba() {
 										out += tt_out[z];
 										cache += tt_out[z];
 										x += tt_range[z];
+										console.log("apply_transtoba: ready=" + ready);
 										ready = true;
-										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', now ready, out=" + out);
+										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready="+ready+", out=" + out);
 									}
 								}
 							} else if (
