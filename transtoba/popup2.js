@@ -361,16 +361,17 @@ async function read_transtoba_code(isHex) {
 	let s;
 	let ins = null;
 	let ti = 0;
+	const codeurl = "";
 
 	console.log("read_transtoba_code: isHex is " + isHex);
 
 	try {
 		if (isHex) {
 			console.log("read_transtoba_code: isHex is true");
-			const codeurl = "transtoba-code-hex.dat"; // Set the path to your resource here
+			codeurl = "transtoba-code-hex.dat"; // Set the path to your resource here
 		} else {
 			console.log("read_transtoba_code: isHex is false");
-			const codeurl = "transtoba-code.dat"; // Set the path to your resource here
+			codeurl = "transtoba-code.dat"; // Set the path to your resource here
 		}
 		const response = await fetch(codeurl);
 
