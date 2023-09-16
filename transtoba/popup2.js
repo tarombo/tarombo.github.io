@@ -278,7 +278,7 @@ async function apply_transtoba(isHex) {
 									x += tt_range[z];
 									//console.log("apply_transtoba: x += tt_range[z]="+x);
 									ready = true;
-									//console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
+									console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
 								}
 							}
 						}
