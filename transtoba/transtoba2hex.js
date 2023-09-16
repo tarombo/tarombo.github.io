@@ -37,30 +37,7 @@ async function actionTextInMain() {
 	str_out = input;
 
 	await apply_prefilter();
-	await apply_transtoba(false);
-	//ausgabe.setText(str_out);
-	output.value = str_out;
-}
-
-async function actionTextInMainHex() {
-
-	console.clear();
-
-	let input = document.getElementById('input').value;
-	let output = document.getElementById('output');
-
-	//console.log("actionTextInMain: input is " + input);
-
-	//read_prefilter("de", map_prefilter_de);
-	//read_prefilter("id", map_prefilter_id);
-	//read_transtoba_code();
-	//load_ttf_fonts();
-	//build_window_layout();
-
-	str_out = input;
-
-	await apply_prefilter();
-	await apply_transtoba(true);
+	await apply_transtoba();
 	//ausgabe.setText(str_out);
 	output.value = str_out;
 }
@@ -207,7 +184,7 @@ function procCache(k, v) {
 	}
 }
 
-async function apply_transtoba(isHex) {
+async function apply_transtoba() {
 	let out = "";
 	let temp = "";
 	let workon = "";
@@ -219,10 +196,9 @@ async function apply_transtoba(isHex) {
 
 	let tempb = String(str_out).toUpperCase().split("\n");
 	//console.log("apply_transtoba: tempb is " + tempb);
-	console.log("apply_transtoba: isHex is " + isHex);
 
 	try {
-		await read_transtoba_code(isHex);
+		await read_transtoba_code();
 
 		for (j = 0; j < tempb.length; j++) {
 
@@ -259,7 +235,7 @@ async function apply_transtoba(isHex) {
 										cache += tt_out[z];
 										x += tt_range[z];
 										ready = true;
-										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready="+ready+", out=" + out);
+										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready=" + ready + ", out=" + out);
 									}
 								}
 							} else if (
@@ -356,24 +332,15 @@ async function apply_transtoba(isHex) {
   loading transtoba data files
  ******************************************************************************/
 
-async function read_transtoba_code(isHex) {
+async function read_transtoba_code() {
 	let result;
 	let s;
 	let ins = null;
 	let ti = 0;
-	let codeurl = "";
-
-	console.log("read_transtoba_code: isHex is " + isHex);
 
 	try {
-		if (isHex) {
-			codeurl = "transtoba-code-hex.dat"; // Set the path to your resource here
-			console.log("read_transtoba_code: isHex is true");
-		} else {
-			codeurl = "transtoba-code.dat"; // Set the path to your resource here
-			console.log("read_transtoba_code: isHex is false");
-		}
-		console.log("read_transtoba_code: codeurl="+codeurl);
+
+		const codeurl = "transtoba-code-hex.dat"; // Set the path to your resource here
 		const response = await fetch(codeurl);
 
 		if (!response.ok) {
@@ -393,11 +360,7 @@ async function read_transtoba_code(isHex) {
 				tt_os.push(parseInt(result[0]));
 				tt_range.push(parseInt(result[1]));
 				tt_in.push(result[2]);
-				if (isHex) {
-					tt_out.push(hex2asc(result[3]));
-				} else {
-					tt_out.push(result[3]);
-				}
+				tt_out.push(hex2asc(result[3]));
 				ttc++;
 				//console.log("read_transtoba_code: tt_os is added with " + parseInt(result[0]));
 				//console.log("read_transtoba_code: tt_range is added with " + parseInt(result[1]));
@@ -498,6 +461,5 @@ function toba_is_konsonant_u(inChar) {
 
 document.addEventListener('DOMContentLoaded', function () {
 	//document.getElementById('alertButton').addEventListener('click', myAlert);
-	document.getElementById('transliterate').addEventListener('click', actionTextInMain);
-	document.getElementById('transliteratehex').addEventListener('click', actionTextInMainHex);
+	document.getElementById('transliteratehex').addEventListener('click', actionTextInMain);
 });
