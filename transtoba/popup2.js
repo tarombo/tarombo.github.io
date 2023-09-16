@@ -36,7 +36,7 @@ async function actionTextInMain() {
 	str_out = input;
 
 	await apply_prefilter();
-	await apply_transtoba();
+	await apply_transtoba(false);
 	//ausgabe.setText(str_out);
 	output.value = str_out;
 }
