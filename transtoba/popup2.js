@@ -361,7 +361,7 @@ async function read_transtoba_code(isHex) {
 	let s;
 	let ins = null;
 	let ti = 0;
-	const codeurl = "";
+	let codeurl = "";
 
 	console.log("read_transtoba_code: isHex is " + isHex);
 
