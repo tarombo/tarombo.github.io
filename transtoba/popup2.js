@@ -218,6 +218,7 @@ async function apply_transtoba(isHex) {
 
 	let tempb = String(str_out).toUpperCase().split("\n");
 	//console.log("apply_transtoba: tempb is " + tempb);
+	console.log("apply_transtoba: isHex is " + isHex);
 
 	try {
 		await read_transtoba_code(isHex);
