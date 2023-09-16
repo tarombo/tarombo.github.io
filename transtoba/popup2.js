@@ -212,12 +212,12 @@ async function apply_transtoba() {
 			//console.log("apply_transtoba: tempa is " + tempa);
 
 			for (i = 0; i < tempa.length; i++) { // go through each character in the input text
-				console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
+				//console.log("apply_transtoba: tempa.length is " + tempa.length + ", i is now " + i);
 				workon = tempa[i];
 				//console.log("apply_transtoba: workon is " + workon + ", ttc="+ttc+", cache_keys's length = " + cache_keys.length);
 
 				if (!cache_keys.includes(workon)) {
-					console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
+					//console.log("apply_transtoba: !cache_keys.includes(workon) is true ");
 					cache = "";
 
 					let x = 0;
@@ -275,7 +275,7 @@ async function apply_transtoba() {
 			}
 			out += "\n";
 
-			//console.log("apply_transtoba: tempa is " + tempa+", out after regex is " + out);
+			console.log("apply_transtoba: tempa is " + tempa+", out after regex is " + out);
 		}
 
 		for (let x = 3; x < out.length; x++) {
@@ -316,7 +316,7 @@ async function apply_transtoba() {
 		console.error(error);
 	}
 
-	//console.log("apply_transtoba: out finally is " + out);
+	console.log("apply_transtoba: out finally is " + out);
 
 	str_out = out;
 	/*
