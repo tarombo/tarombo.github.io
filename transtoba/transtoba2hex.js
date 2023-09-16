@@ -279,8 +279,8 @@ async function apply_transtoba() {
 			console.log("apply_transtoba: tempa is " + tempa + ", out after regex is " + out);
 		}
 
+		console.log("apply_transtoba: let x = 3; x < out.length; x++, out.length=" + out.length);
 		for (let x = 3; x < out.length; x++) {
-			console.log("apply_transtoba: let x = 3; x < out.length; x++, out.length=" + out.length);
 			console.log("apply_transtoba: konsonant? x=" + x + ", out.charAt(x - 3)=" + out.charAt(x - 3) + ", out.charAt(x - 1)=" + out.charAt(x - 1));
 			console.log("apply_transtoba: diacritic? x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 2) + ", out.charAt(x)=" + out.charAt(x));
 			console.log("apply_transtoba: out.charAt(x - 2) !== String.fromCharCode(0x5C) ? out.charAt(x - 2)=" + out.charAt(x - 2) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
@@ -301,11 +301,11 @@ async function apply_transtoba() {
 					out.substring(x);
 				console.log("apply_transtoba: New out="+out);
 			}
-			console.log("apply_transtoba: Yes. Previous out="+out+", out should have been: "+out.substring(0, x - 2) +out.substring(x - 1, x - 0) +out.substring(x - 2, x - 1) +out.substring(x));
+			console.log("apply_transtoba: Current out="+out+", out should have been: "+out.substring(0, x - 2) +out.substring(x - 1, x - 0) +out.substring(x - 2, x - 1) +out.substring(x));
 		}
 
+		console.log("apply_transtoba: let x = 2; x < out.length; x++, out.length=" + out.length);
 		for (let x = 2; x < out.length; x++) {
-			console.log("apply_transtoba: let x = 2; x < out.length; x++, out.length=" + out.length);
 			console.log("apply_transtoba: konsonant? x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 2) + ", out.charAt(x - 1)=" + out.charAt(x - 1));
 			console.log("apply_transtoba: out.charAt(x) === String.fromCharCode(0x5C) ? out.charAt(x)=" + out.charAt(x) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
 			if (
@@ -321,7 +321,7 @@ async function apply_transtoba() {
 					out.substring(x);
 				console.log("apply_transtoba: New out="+out);
 			}
-			console.log("apply_transtoba: Yes. Previous out="+out+", out should have been: "+out.substring(0, x - 2) + String.fromCharCode(out.charCodeAt(x - 2) + 0x20) + String.fromCharCode(out.charCodeAt(x - 1) - 0x20) + out.substring(x));
+			console.log("apply_transtoba: Current out="+out+", out should have been: "+out.substring(0, x - 2) + String.fromCharCode(out.charCodeAt(x - 2) + 0x20) + String.fromCharCode(out.charCodeAt(x - 1) - 0x20) + out.substring(x));
 		}
 
 		if (!toggle_whitespaces) {
