@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Roman to Batak Toba Transliterator</title>
-    <script src="./popup.js"></script>
-  </head>
-  <body>
-    <h1>Roman to Batak Toba Transliterator</h1>
-    <textarea id="input" rows="10" cols="50"></textarea><br>
-    <button id="transliterate">Transliterate</button><br>
-    <textarea id="output" rows="10" cols="50" readonly></textarea>
 
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="NotoSansBatak-Regular.ttf">
 
-    <form name='testForm'>
-      <input type='button' id='alertButton' value='click me'>
+  <title>Roman to Batak Toba Transliterator</title>
+  <script src="./popup2.js"></script>
+  <style>
+    .custom-font-textarea {
+      font-family: 'Noto Sans Batak Regular', sans-serif;
+      /* Replace 'YourFontName' with the actual font name */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Roman to Batak Toba Transliterator</h1>
+  <textarea id="input" rows="10" cols="50"></textarea><br>
+  <button id="transliterate">Transliterate</button> <button id="transliteratehex">Transliterate (input method)</button><br>
+  <textarea id="output" rows="10" cols="50" readonly class="custom-font-textarea"></textarea>
+  <form name='testForm'>
   </form>
-  </body>
+</body>
+
 </html>
