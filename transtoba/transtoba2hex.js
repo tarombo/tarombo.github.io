@@ -282,7 +282,9 @@ async function apply_transtoba() {
 		for (let x = 3; x < out.length; x++) {
 			console.log("apply_transtoba: let x = 3; x < out.length; x++, out.length=" + out.length);
 			console.log("apply_transtoba: konsonant? x=" + x + ", out.charAt(x - 3)=" + out.charAt(x - 3) + ", out.charAt(x - 1)=" + out.charAt(x - 1));
-			console.log("apply_transtoba: diacritic? x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 3) + ", out.charAt(x)=" + out.charAt(x - 1));
+			console.log("apply_transtoba: diacritic? x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 2) + ", out.charAt(x)=" + out.charAt(x));
+			console.log("apply_transtoba: out.charAt(x - 2) !== String.fromCharCode(0x5C) ? out.charAt(x - 2)=" + out.charAt(x - 2) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
+			console.log("apply_transtoba: out.charAt(x) === String.fromCharCode(0x5C) ? out.charAt(x)=" + out.charAt(x) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
 			if (
 				toba_is_konsonant(out.charAt(x - 3)) &&
 				toba_is_konsonant(out.charAt(x - 1)) &&
@@ -305,7 +307,7 @@ async function apply_transtoba() {
 		for (let x = 2; x < out.length; x++) {
 			console.log("apply_transtoba: let x = 2; x < out.length; x++, out.length=" + out.length);
 			console.log("apply_transtoba: konsonant? x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 2) + ", out.charAt(x - 1)=" + out.charAt(x - 1));
-			console.log("apply_transtoba: konsonant? x=" + x + ", out.charAt(x)=" + out.charAt(x) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
+			console.log("apply_transtoba: out.charAt(x) === String.fromCharCode(0x5C) ? out.charAt(x)=" + out.charAt(x) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
 			if (
 				toba_is_konsonant_u(out.charAt(x - 2)) &&
 				toba_is_konsonant(out.charAt(x - 1)) &&
