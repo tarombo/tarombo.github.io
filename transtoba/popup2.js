@@ -358,7 +358,8 @@ async function read_transtoba_code() {
 				tt_os.push(parseInt(result[0]));
 				tt_range.push(parseInt(result[1]));
 				tt_in.push(result[2]);
-				tt_out.push(hex2asc(result[3]));
+				//tt_out.push(hex2asc(result[3]));
+				tt_out.push(result[3]);
 				ttc++;
 				//console.log("read_transtoba_code: tt_os is added with " + parseInt(result[0]));
 				//console.log("read_transtoba_code: tt_range is added with " + parseInt(result[1]));
