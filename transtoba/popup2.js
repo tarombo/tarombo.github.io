@@ -129,7 +129,7 @@ async function apply_prefilter() {
 		// Now you can safely iterate over map_prefilter_id
 		for (const [key, value] of map_prefilter_id.entries()) {
 			const regex = new RegExp(escapeRegExp(key), 'gi');
-			console.log("apply_prefilter: RegExp(escapeRegExp(key), 'gi') is " + regex);
+			//console.log("apply_prefilter: RegExp(escapeRegExp(key), 'gi') is " + regex);
 			str_out = str_out.replace(regex, (match) => {
 				// Check the case of the match and replace accordingly
 				if (match === key.toLowerCase()) {
@@ -225,7 +225,7 @@ async function apply_transtoba() {
 						//console.log("apply_transtoba: x=" + x);
 						let ready = false;
 						for (let z = 0; z < ttc && !ready; z++) { // go through each data in transtoba-code.data to compare with the character
-							console.log("apply_transtoba: tt_os[" + z + "]=" + tt_os[z] + ", tt_in[" + z + "]=" + tt_in[z] + ", tt_in[" + z + "].chartAt(0)=" + tt_in[z].charAt(0) + ", tt_range[" + z + "]=" + tt_range[z]);
+							//console.log("apply_transtoba: tt_os[" + z + "]=" + tt_os[z] + ", tt_in[" + z + "]=" + tt_in[z] + ", tt_in[" + z + "].chartAt(0)=" + tt_in[z].charAt(0) + ", tt_range[" + z + "]=" + tt_range[z]);
 							if (tt_in[z].charAt(0) === '^') {
 								//console.log("apply_transtoba: tt_in[z].charAt(0) === '^'");
 								if (x === 0) {
