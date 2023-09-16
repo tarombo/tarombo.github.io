@@ -259,7 +259,7 @@ async function apply_transtoba(isHex) {
 										cache += tt_out[z];
 										x += tt_range[z];
 										ready = true;
-										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready=" + ready + ", out=" + out);
+										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready="+ready+", out=" + out);
 									}
 								}
 							} else if (
@@ -361,18 +361,20 @@ async function read_transtoba_code(isHex) {
 	let s;
 	let ins = null;
 	let ti = 0;
+	let codeurl = "";
 
 	console.log("read_transtoba_code: isHex is " + isHex);
 
 	try {
-		const codeurlhex = "transtoba-code-hex.dat"; // Set the path to your resource here
-		const codeurl = "transtoba-code.dat"; // Set the path to your resource here
-
 		if (isHex) {
-			const response = await fetch(codeurlhex);
+			codeurl = "transtoba-code-hex.dat"; // Set the path to your resource here
+			console.log("read_transtoba_code: isHex is true");
 		} else {
-			const response = await fetch(codeurl);
+			codeurl = "transtoba-code.dat"; // Set the path to your resource here
+			console.log("read_transtoba_code: isHex is false");
 		}
+		console.log("read_transtoba_code: codeurl="+codeurl);
+		const response = await fetch(codeurl);
 
 		if (!response.ok) {
 			throw new Error(`Failed to fetch resource: ${response.status} ${response.statusText}`);
