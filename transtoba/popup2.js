@@ -259,7 +259,7 @@ async function apply_transtoba(isHex) {
 										cache += tt_out[z];
 										x += tt_range[z];
 										ready = true;
-										//console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready="+ready+", out=" + out);
+										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready="+ready+", out=" + out);
 									}
 								}
 							} else if (
