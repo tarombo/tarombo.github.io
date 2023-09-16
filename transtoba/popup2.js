@@ -1,3 +1,4 @@
+let isHex = false;
 let map_prefilter_id = new Map();
 let map_prefilter_de = new Map();
 let str_in = "";
@@ -362,7 +363,11 @@ async function read_transtoba_code(isHex) {
 	let ti = 0;
 
 	try {
-		const codeurl = "transtoba-code.dat"; // Set the path to your resource here
+		if (isHex) {
+			const codeurl = "transtoba-code-hex.dat"; // Set the path to your resource here
+		} else {
+			const codeurl = "transtoba-code.dat"; // Set the path to your resource here
+		}
 		const response = await fetch(codeurl);
 
 		if (!response.ok) {
