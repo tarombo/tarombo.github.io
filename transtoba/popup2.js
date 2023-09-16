@@ -388,7 +388,7 @@ async function read_transtoba_code(isHex) {
 
 		for (const line of lines) {
 			result = line.trim().split(/\s+/);
-			//console.log("read_transtoba_code: result is " + result);
+			console.log("read_transtoba_code: result is " + result);
 			if (result.length > 2) {
 				tt_os.push(parseInt(result[0]));
 				tt_range.push(parseInt(result[1]));
