@@ -235,7 +235,7 @@ async function apply_transtoba() {
 										cache += tt_out[z];
 										x += tt_range[z];
 										ready = true;
-										console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready=" + ready + ", out=" + out);
+										//console.log("apply_transtoba: tt_in[z].charAt(0) === '^', ready=" + ready + ", out=" + out);
 									}
 								}
 							} else if (
@@ -254,7 +254,7 @@ async function apply_transtoba() {
 									x += tt_range[z];
 									//console.log("apply_transtoba: x += tt_range[z]="+x);
 									ready = true;
-									console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
+									//console.log("apply_transtoba: workon.length > x + tt_os[z] && x + tt_os[z] >= 0, now ready, out=" + out);
 								}
 							}
 						}
@@ -361,7 +361,7 @@ async function read_transtoba_code() {
 
 		for (const line of lines) {
 			result = line.trim().split(/\s+/);
-			console.log("read_transtoba_code: result is " + result);
+			//console.log("read_transtoba_code: result is " + result);
 			if (result.length > 2) {
 				tt_os.push(parseInt(result[0]));
 				tt_range.push(parseInt(result[1]));
