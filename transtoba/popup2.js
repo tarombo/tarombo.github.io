@@ -41,6 +41,29 @@ async function actionTextInMain() {
 	output.value = str_out;
 }
 
+async function actionTextInMainHex() {
+
+	console.clear();
+
+	let input = document.getElementById('input').value;
+	let output = document.getElementById('output');
+
+	//console.log("actionTextInMain: input is " + input);
+
+	//read_prefilter("de", map_prefilter_de);
+	//read_prefilter("id", map_prefilter_id);
+	//read_transtoba_code();
+	//load_ttf_fonts();
+	//build_window_layout();
+
+	str_out = input;
+
+	await apply_prefilter();
+	await apply_transtoba(true);
+	//ausgabe.setText(str_out);
+	output.value = str_out;
+}
+
 async function read_prefilter(lang, map) {
 	const resourcePath = `transtoba-prefilter-${lang}.dat`;
 
@@ -183,7 +206,7 @@ function procCache(k, v) {
 	}
 }
 
-async function apply_transtoba() {
+async function apply_transtoba(isHex) {
 	let out = "";
 	let temp = "";
 	let workon = "";
@@ -197,7 +220,7 @@ async function apply_transtoba() {
 	//console.log("apply_transtoba: tempb is " + tempb);
 
 	try {
-		await read_transtoba_code();
+		await read_transtoba_code(isHex);
 
 		for (j = 0; j < tempb.length; j++) {
 
@@ -275,7 +298,7 @@ async function apply_transtoba() {
 			}
 			out += "\n";
 
-			console.log("apply_transtoba: tempa is " + tempa+", out after regex is " + out);
+			console.log("apply_transtoba: tempa is " + tempa + ", out after regex is " + out);
 		}
 
 		for (let x = 3; x < out.length; x++) {
@@ -331,7 +354,7 @@ async function apply_transtoba() {
   loading transtoba data files
  ******************************************************************************/
 
-async function read_transtoba_code() {
+async function read_transtoba_code(isHex) {
 	let result;
 	let s;
 	let ins = null;
@@ -358,8 +381,11 @@ async function read_transtoba_code() {
 				tt_os.push(parseInt(result[0]));
 				tt_range.push(parseInt(result[1]));
 				tt_in.push(result[2]);
-				//tt_out.push(hex2asc(result[3]));
-				tt_out.push(result[3]);
+				if (isHex) {
+					tt_out.push(hex2asc(result[3]));
+				} else {
+					tt_out.push(result[3]);
+				}
 				ttc++;
 				//console.log("read_transtoba_code: tt_os is added with " + parseInt(result[0]));
 				//console.log("read_transtoba_code: tt_range is added with " + parseInt(result[1]));
@@ -461,4 +487,5 @@ function toba_is_konsonant_u(inChar) {
 document.addEventListener('DOMContentLoaded', function () {
 	//document.getElementById('alertButton').addEventListener('click', myAlert);
 	document.getElementById('transliterate').addEventListener('click', actionTextInMain);
+	document.getElementById('transliteratehex').addEventListener('click', actionTextInMainHex);
 });
