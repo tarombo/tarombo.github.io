@@ -279,10 +279,14 @@ async function apply_transtoba() {
 			console.log("apply_transtoba: tempa is " + tempa + ", out after regex is " + out);
 		}
 
-		console.log("apply_transtoba: let x = 3; x < out.length; x++ out.length=" + out.length);
+		//console.log("apply_transtoba: let x = 3; x < out.length; x++, out.length=" + out.length);
 		for (let x = 3; x < out.length; x++) {
-			console.log("apply_transtoba: konsonant? x=" + x + ", out.charAt(x - 3)=" + out.charAt(x - 3) + ", out.charAt(x - 1)=" + out.charAt(x - 1));
-			console.log("apply_transtoba: diacritic? x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 3) + ", out.charAt(x)=" + out.charAt(x - 1));
+			//console.log("apply_transtoba: konsonant? " + toba_is_konsonant(out.charAt(x - 3)) + ", x=" + x + ", out.charAt(x - 3)=" + out.charAt(x - 3));
+			//console.log("apply_transtoba: konsonant? " + toba_is_konsonant(out.charAt(x - 1)) + ", x=" + x + ", out.charAt(x - 1)=" + out.charAt(x - 1));
+			//console.log("apply_transtoba: diacritic? " + toba_is_diacritic(out.charAt(x - 2)) + ", x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 2));
+			//console.log("apply_transtoba: diacritic? " + toba_is_diacritic(out.charAt(x)) + ", x=" + x + ", out.charAt(x)=" + out.charAt(x));
+			//console.log("apply_transtoba: out.charAt(x - 2) !== String.fromCharCode(0x5C) ? " + (out.charAt(x - 2) !== String.fromCharCode(0x5C)) + ", out.charAt(x - 2)=" + out.charAt(x - 2) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
+			//console.log("apply_transtoba: out.charAt(x) === String.fromCharCode(0x5C) ? " + (out.charAt(x) === String.fromCharCode(0x5C)) + ", out.charAt(x)=" + out.charAt(x) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
 			if (
 				toba_is_konsonant(out.charAt(x - 3)) &&
 				toba_is_konsonant(out.charAt(x - 1)) &&
@@ -291,28 +295,33 @@ async function apply_transtoba() {
 				out.charAt(x - 2) !== String.fromCharCode(0x5C) &&
 				out.charAt(x) === String.fromCharCode(0x5C)
 			) {
-				console.log("apply_transtoba: Yes. Previous out="+out);
+				//console.log("apply_transtoba: Yes. Previous out=" + out);
 				out =
 					out.substring(0, x - 2) +
 					out.substring(x - 1, x - 0) +
 					out.substring(x - 2, x - 1) +
 					out.substring(x);
-				console.log("apply_transtoba: New out="+out);
+					//console.log("apply_transtoba: New out=" + out);
 			}
-			console.log("apply_transtoba: Yes. Previous out="+out+", out should have been: "+out.substring(0, x - 2) +out.substring(x - 1, x - 0) +out.substring(x - 2, x - 1) +out.substring(x));
 		}
 
+		//console.log("apply_transtoba: let x = 2; x < out.length; x++, out.length=" + out.length);
 		for (let x = 2; x < out.length; x++) {
+			//console.log("apply_transtoba: konsonant? " + toba_is_konsonant_u(out.charAt(x - 2)) + ", x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 2));
+			//console.log("apply_transtoba: konsonant? " + toba_is_konsonant(out.charAt(x - 1)) + ", x=" + x + ", out.charAt(x - 1)=" + out.charAt(x - 1));
+			//console.log("apply_transtoba: out.charAt(x) === String.fromCharCode(0x5C) ? " + (out.charAt(x) === String.fromCharCode(0x5C)) + ", out.charAt(x)=" + out.charAt(x) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
 			if (
 				toba_is_konsonant_u(out.charAt(x - 2)) &&
 				toba_is_konsonant(out.charAt(x - 1)) &&
 				out.charAt(x) === String.fromCharCode(0x5C)
 			) {
+				//console.log("apply_transtoba: Yes. Previous out=" + out);
 				out =
 					out.substring(0, x - 2) +
 					String.fromCharCode(out.charCodeAt(x - 2) + 0x20) +
 					String.fromCharCode(out.charCodeAt(x - 1) - 0x20) +
 					out.substring(x);
+					//console.log("apply_transtoba: New out=" + out);
 			}
 		}
 
@@ -450,7 +459,7 @@ async function readPrefilter(lang, map) {
  ******************************************************************************/
 
 function toba_is_konsonant(inChar) {
-	const kons = [0x61, 0x68, 0x6B, 0x62, 0x70, 0x6E, 0x77, 0x67, 0x6A, 0x64, 0x72, 0x6D, 0x74, 0x73, 0x79, 0x3C, 0x6C, 0x00];
+	const kons = ['a', 'h', 'k', 'b', 'p', 'n', 'w', 'g', 'j', 'd', 'r', 'm', 't', 's', 'y', '<', 'l', 0x00];
 	for (let x = 0; inChar !== kons[x]; x++) {
 		if (kons[x] === 0x00) return false;
 	}
@@ -458,11 +467,31 @@ function toba_is_konsonant(inChar) {
 }
 
 function toba_is_konsonant_u(inChar) {
-	const k_u = [0x41, 0x48, 0x4B, 0x42, 0x50, 0x4E, 0x57, 0x47, 0x4A, 0x44, 0x52, 0x4D, 0x54, 0x53, 0x59, 0x3E, 0x4C, 0x00];
+	const k_u = ['A', 'H', 'K', 'B', 'P', 'N', 'W', 'G', 'J', 'D', 'R', 'M', 'T', 'S', 'Y', '>', 'L', 0x00];
 	for (let x = 0; inChar !== k_u[x]; x++) {
 		if (k_u[x] === 0x00) return false;
 	}
 	return true;
+}
+
+function roman_is_vokal(inChar) {
+	const dv = ['A', 'E', 'I', 'O', 'U', 0x00];
+	for (let x = 0; x < dv.length; x++) {
+		if (dv[x] === inChar) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function toba_is_diacritic(inChar) {
+	const dia = ['\\', 'e', 'i', 'o', 'x', 0x00];
+	for (let x = 0; x < dia.length; x++) {
+		if (dia[x] === inChar) {
+			return true;
+		}
+	}
+	return false;
 }
 
 
