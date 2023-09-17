@@ -460,7 +460,7 @@ async function readPrefilter(lang, map) {
  ******************************************************************************/
 
 function toba_is_konsonant(inChar) {
-	const kons = [0x61, 0x68, 0x6B, 0x62, 0x70, 0x6E, 0x77, 0x67, 0x6A, 0x64, 0x72, 0x6D, 0x74, 0x73, 0x79, 0x3C, 0x6C, 0x00];
+	const kons = ['a','h','k','b','p','n','w','g','j','d','r','m','t','s','y','<','l',0x00];
 	for (let x = 0; inChar !== kons[x]; x++) {
 		if (kons[x] === 0x00) return false;
 	}
@@ -486,7 +486,7 @@ function roman_is_vokal(inChar) {
 }
 
 function toba_is_diacritic(inChar) {
-	const dia = [0x5C,0x65,0x69,0x6F,0x78,0x00];
+	const dia = ['\\','e','i','o','x',0x00];
 	for (let x = 0; x < dia.length; x++) {
 		if (dia[x] === inChar) {
 			return true;
