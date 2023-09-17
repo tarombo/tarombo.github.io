@@ -3,15 +3,15 @@
 	0	1    ^U(?!MB|ND|NJ|MP|NS|NT|NGG|NGK)		ᯥ
 	-1	1    [AEIOU]I(?!MB|ND|NJ|MP|NS|NT|NGG|NGK)	ᯤ
 	-1	1    [AEIOU]U(?!MB|ND|NJ|MP|NS|NT|NGG|NGK)	ᯥ
-	0	5    NGANG([^AEIOU]|$)			003C005E
+	0	5    NGANG([^AEIOU]|$)			ᯝᯰ
 	0	5    NYANG([^AEIOU]|$)			005B005E
-	0	5    NGENG([^AEIOU]|$)			003C0065005E
+	0	5    NGENG([^AEIOU]|$)			ᯝᯩᯰ
 	0	5    NYENG([^AEIOU]|$)			005B0065005E
-	0	5    NGING([^AEIOU]|$)			003C0069005E
+	0	5    NGING([^AEIOU]|$)			ᯝᯬᯰ
 	0	5    NYING([^AEIOU]|$)			005B0069005E
-	0	5    NGONG([^AEIOU]|$)			003C006F005E
+	0	5    NGONG([^AEIOU]|$)			ᯝᯪᯰ
 	0	5    NYONG([^AEIOU]|$)			005B006F005E
-	0	5    NGUNG([^AEIOU]|$)			003E005E
+	0	5    NGUNG([^AEIOU]|$)			ᯝᯮᯰ
 	0	5    NYUNG([^AEIOU]|$)			005D005E
 	0	4    HANG([^AEIOU]|$)			ᯂᯰ
 	0	4    KANG([^AEIOU]|$)			006B005E
@@ -61,54 +61,54 @@
 	0	4    CING([^AEIOU]|$)			00630069005E
 	0	4    YING([^AEIOU]|$)			00790069005E
 	0	4    LING([^AEIOU]|$)			ᯞᯪᯰ
-	0	4    HONG([^AEIOU]|$)			0068006F005E
+	0	4    HONG([^AEIOU]|$)			ᯂᯬᯰ
 	0	4    HONG([^AEIOU]|$)			006B006F005E
-	0	4    BONG([^AEIOU]|$)			0062006F005E
-	0	4    PONG([^AEIOU]|$)			0070006F005E
-	0	4    NONG([^AEIOU]|$)			006E006F005E
-	0	4    WONG([^AEIOU]|$)			0077006F005E
-	0	4    GONG([^AEIOU]|$)			0067006F005E
-	0	4    JONG([^AEIOU]|$)			006A006F005E
-	0	4    DONG([^AEIOU]|$)			0064006F005E
-	0	4    RONG([^AEIOU]|$)			0072006F005E
-	0	4    MONG([^AEIOU]|$)			006D006F005E
-	0	4    TONG([^AEIOU]|$)			0074006F005E
-	0	4    SONG([^AEIOU]|$)			0073006F005E
+	0	4    BONG([^AEIOU]|$)			ᯅᯬᯰ
+	0	4    PONG([^AEIOU]|$)			ᯇᯬᯰ
+	0	4    NONG([^AEIOU]|$)			ᯉᯬᯰ
+	0	4    WONG([^AEIOU]|$)			ᯋᯬᯰ
+	0	4    GONG([^AEIOU]|$)			ᯎᯬᯰ
+	0	4    JONG([^AEIOU]|$)			ᯐᯬᯰ
+	0	4    DONG([^AEIOU]|$)			ᯑᯬᯰ
+	0	4    RONG([^AEIOU]|$)			ᯒᯬᯰ
+	0	4    MONG([^AEIOU]|$)			ᯔᯬᯰ
+	0	4    TONG([^AEIOU]|$)			ᯖᯬᯰ
+	0	4    SONG([^AEIOU]|$)			ᯘᯬᯰ
 	0	4    CONG([^AEIOU]|$)			0063006F005E
 	0	4    YONG([^AEIOU]|$)			0079006F005E
-	0	4    LONG([^AEIOU]|$)			006C006F005E
-	0	4    HUNG([^AEIOU]|$)			0048005E
+	0	4    LONG([^AEIOU]|$)			ᯞᯬᯰ
+	0	4    HUNG([^AEIOU]|$)			ᯂᯮᯰ
 	0	4    KUNG([^AEIOU]|$)			004B005E
-	0	4    BUNG([^AEIOU]|$)			0042005E
-	0	4    PUNG([^AEIOU]|$)			0050005E
-	0	4    NUNG([^AEIOU]|$)			004E005E
-	0	4    WUNG([^AEIOU]|$)			0057005E
-	0	4    GUNG([^AEIOU]|$)			0047005E
-	0	4    JUNG([^AEIOU]|$)			004A005E
-	0	4    DUNG([^AEIOU]|$)			0044005E
-	0	4    RUNG([^AEIOU]|$)			0052005E
-	0	4    MUNG([^AEIOU]|$)			004D005E
-	0	4    TUNG([^AEIOU]|$)			0054005E
-	0	4    SUNG([^AEIOU]|$)			0053005E
+	0	4    BUNG([^AEIOU]|$)			ᯅᯮᯰ
+	0	4    PUNG([^AEIOU]|$)			ᯇᯮᯰ
+	0	4    NUNG([^AEIOU]|$)			ᯉᯮᯰ
+	0	4    WUNG([^AEIOU]|$)			ᯋᯮᯰ
+	0	4    GUNG([^AEIOU]|$)			ᯎᯮᯰ
+	0	4    JUNG([^AEIOU]|$)			ᯐᯮᯰ
+	0	4    DUNG([^AEIOU]|$)			ᯑᯮᯰ
+	0	4    RUNG([^AEIOU]|$)			ᯒᯮᯰ
+	0	4    MUNG([^AEIOU]|$)			ᯔᯮᯰ
+	0	4    TUNG([^AEIOU]|$)			ᯎᯮᯰ
+	0	4    SUNG([^AEIOU]|$)			ᯘᯮᯰ
 	0	4    CUNG([^AEIOU]|$)			0043005E
 	0	4    YUNG([^AEIOU]|$)			0059005E
-	0	4    LUNG([^AEIOU]|$)			004C005E
-	0	3    NGA					003C
+	0	4    LUNG([^AEIOU]|$)			ᯞᯮᯰ
+	0	3    NGA					ᯝ
 	0	3    NYA					005B
-	0	3    NGE					003C0065
+	0	3    NGE					ᯝᯩ
 	0	3    NYE					005B0065
-	0	3    NGI					003C0069
+	0	3    NGI					ᯝᯪ
 	0	3    NYI					005B0069
-	0	3    NGO					003C006F
+	0	3    NGO					ᯝᯬ
 	0	3    NYO					005B006F
-	0	3    NGU					003E
+	0	3    NGU					ᯝᯮ
 	0	3    NYU					005D
-	0	3    ANG([^AEIOU]|$)			0061005E
-	0	3    ENG([^AEIOU]|$)			00610065005E
-	0	3    ING([^AEIOU]|$)			0049005E
-	0	3    ING([^AEIOU]|$)			00610069005E
-	0	3    ONG([^AEIOU]|$)			0061006F005E
-	0	3    UNG([^AEIOU]|$)			0055005E
+	0	3    ANG([^AEIOU]|$)			ᯀᯰ
+	0	3    ENG([^AEIOU]|$)			ᯀᯩᯰ
+	0	3    ING([^AEIOU]|$)			ᯤᯰ
+	0	3    ING([^AEIOU]|$)			ᯀᯪᯰ
+	0	3    ONG([^AEIOU]|$)			ᯀᯬᯰ
+	0	3    UNG([^AEIOU]|$)			ᯥᯰ
 	0	2    HA						ᯂ
 	0	2    KA						ᯂ
 	0	2    BA						ᯅ
