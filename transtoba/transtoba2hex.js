@@ -285,8 +285,8 @@ async function apply_transtoba() {
 			console.log("apply_transtoba: konsonant? " + toba_is_konsonant(out.charAt(x - 1)) + ", x=" + x + ", out.charAt(x - 1)=" + out.charAt(x - 1));
 			console.log("apply_transtoba: diacritic? " + toba_is_diacritic(out.charAt(x - 2)) + ", x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 2));
 			console.log("apply_transtoba: diacritic? " + toba_is_diacritic(out.charAt(x)) + ", x=" + x + ", out.charAt(x)=" + out.charAt(x));
-			console.log("apply_transtoba: out.charAt(x - 2) !== String.fromCharCode(0x5C) ? " + out.charAt(x - 2) !== String.fromCharCode(0x5C) + ", out.charAt(x - 2)=" + out.charAt(x - 2) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
-			console.log("apply_transtoba: out.charAt(x) === String.fromCharCode(0x5C) ? " + out.charAt(x) === String.fromCharCode(0x5C) + ", out.charAt(x)=" + out.charAt(x) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
+			console.log("apply_transtoba: out.charAt(x - 2) !== String.fromCharCode(0x5C) ? " + (out.charAt(x - 2) !== String.fromCharCode(0x5C)) + ", out.charAt(x - 2)=" + out.charAt(x - 2) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
+			console.log("apply_transtoba: out.charAt(x) === String.fromCharCode(0x5C) ? " + (out.charAt(x) === String.fromCharCode(0x5C)) + ", out.charAt(x)=" + out.charAt(x) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
 			if (
 				toba_is_konsonant(out.charAt(x - 3)) &&
 				toba_is_konsonant(out.charAt(x - 1)) &&
