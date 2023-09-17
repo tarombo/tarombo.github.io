@@ -309,7 +309,7 @@ async function apply_transtoba() {
 		console.log("apply_transtoba: let x = 2; x < out.length; x++, out.length=" + out.length);
 		for (let x = 2; x < out.length; x++) {
 			console.log("apply_transtoba: konsonant? " + toba_is_konsonant_u(out.charAt(x - 2)) + ", x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 2));
-			console.log("apply_transtoba: konsonant? " + toba_is_konsonant_u(out.charAt(x - 1)) + ", x=" + x + ", out.charAt(x - 1)=" + out.charAt(x - 1));
+			console.log("apply_transtoba: konsonant? " + toba_is_konsonant(out.charAt(x - 1)) + ", x=" + x + ", out.charAt(x - 1)=" + out.charAt(x - 1));
 			console.log("apply_transtoba: out.charAt(x) === String.fromCharCode(0x5C) ? " + (out.charAt(x) === String.fromCharCode(0x5C)) + ", out.charAt(x)=" + out.charAt(x) + ", String.fromCharCode(0x5C)=" + String.fromCharCode(0x5C));
 			if (
 				toba_is_konsonant_u(out.charAt(x - 2)) &&
@@ -468,7 +468,7 @@ function toba_is_konsonant(inChar) {
 }
 
 function toba_is_konsonant_u(inChar) {
-	const k_u = [0x41, 0x48, 0x4B, 0x42, 0x50, 0x4E, 0x57, 0x47, 0x4A, 0x44, 0x52, 0x4D, 0x54, 0x53, 0x59, 0x3E, 0x4C, 0x00];
+	const k_u = ['A','H','K','B','P','N','W','G','J','D','R','M','T','S','Y','>','L', 0x00];
 	for (let x = 0; inChar !== k_u[x]; x++) {
 		if (k_u[x] === 0x00) return false;
 	}
