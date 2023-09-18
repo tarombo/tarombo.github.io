@@ -305,7 +305,7 @@ async function apply_transtoba() {
 			}
 		}
 
-		//console.log("apply_transtoba: let x = 2; x < out.length; x++, out.length=" + out.length);
+		console.log("apply_transtoba: flip order now... out.length=" + out.length);
 		for (let x = 2; x < out.length; x++) {
 			//console.log("apply_transtoba: konsonant? " + toba_is_konsonant_u(out.charAt(x - 2)) + ", x=" + x + ", out.charAt(x - 2)=" + out.charAt(x - 2));
 			//console.log("apply_transtoba: konsonant? " + toba_is_konsonant(out.charAt(x - 1)) + ", x=" + x + ", out.charAt(x - 1)=" + out.charAt(x - 1));
@@ -332,7 +332,7 @@ async function apply_transtoba() {
 		console.error(error);
 	}
 
-	console.log("apply_transtoba: out finally is " + out);
+	console.log("apply_transtoba: final out is " + out);
 
 	str_out = out;
 	/*
