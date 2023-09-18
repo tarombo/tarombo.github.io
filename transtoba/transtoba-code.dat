@@ -4,15 +4,15 @@
 	-1	1    [AEIOU]I(?!MB|ND|NJ|MP|NS|NT|NGG|NGK)	ᯤ
 	-1	1    [AEIOU]U(?!MB|ND|NJ|MP|NS|NT|NGG|NGK)	ᯥ
 	0	5    NGANG([^AEIOU]|$)			ᯝᯰ
-	0	5    NYANG([^AEIOU]|$)			005B005E
+	0	5    NYANG([^AEIOU]|$)			ᯠᯰ
 	0	5    NGENG([^AEIOU]|$)			ᯝᯩᯰ
-	0	5    NYENG([^AEIOU]|$)			005B0065005E
+	0	5    NYENG([^AEIOU]|$)			ᯠᯩᯰ
 	0	5    NGING([^AEIOU]|$)			ᯝᯬᯰ
-	0	5    NYING([^AEIOU]|$)			005B0069005E
+	0	5    NYING([^AEIOU]|$)			ᯠᯪᯰ
 	0	5    NGONG([^AEIOU]|$)			ᯝᯪᯰ
-	0	5    NYONG([^AEIOU]|$)			005B006F005E
+	0	5    NYONG([^AEIOU]|$)			ᯠᯬᯰ
 	0	5    NGUNG([^AEIOU]|$)			ᯝᯮᯰ
-	0	5    NYUNG([^AEIOU]|$)			005D005E
+	0	5    NYUNG([^AEIOU]|$)			ᯠᯮᯰ
 	0	4    HANG([^AEIOU]|$)			ᯂᯰ
 	0	4    KANG([^AEIOU]|$)			006B005E
 	0	4    BANG([^AEIOU]|$)			ᯅᯰ
@@ -27,7 +27,7 @@
 	0	4    TANG([^AEIOU]|$)			ᯖᯰ
 	0	4    SANG([^AEIOU]|$)			ᯘᯰ
 	0	4    CANG([^AEIOU]|$)			0063005E
-	0	4    YANG([^AEIOU]|$)			0079005E
+	0	4    YANG([^AEIOU]|$)			ᯛᯰ
 	0	4    LANG([^AEIOU]|$)			ᯞᯰ
 	0	4    HENG([^AEIOU]|$)			ᯂᯩᯰ
 	0	4    KENG([^AEIOU]|$)			006B0065005E
@@ -43,7 +43,7 @@
 	0	4    TENG([^AEIOU]|$)			ᯖᯩᯰ
 	0	4    SENG([^AEIOU]|$)			ᯘᯩᯰ
 	0	4    CENG([^AEIOU]|$)			00630065005E
-	0	4    YENG([^AEIOU]|$)			00790065005E
+	0	4    YENG([^AEIOU]|$)			ᯛᯩᯰ
 	0	4    LENG([^AEIOU]|$)			ᯞᯩᯰ
 	0	4    HING([^AEIOU]|$)			ᯂᯪᯰ
 	0	4    HING([^AEIOU]|$)			006B0069005E
@@ -59,7 +59,7 @@
 	0	4    TING([^AEIOU]|$)			ᯖᯪᯰ
 	0	4    SING([^AEIOU]|$)			ᯘᯪᯰ
 	0	4    CING([^AEIOU]|$)			00630069005E
-	0	4    YING([^AEIOU]|$)			00790069005E
+	0	4    YING([^AEIOU]|$)			ᯛᯪᯰ
 	0	4    LING([^AEIOU]|$)			ᯞᯪᯰ
 	0	4    HONG([^AEIOU]|$)			ᯂᯬᯰ
 	0	4    HONG([^AEIOU]|$)			006B006F005E
@@ -75,7 +75,7 @@
 	0	4    TONG([^AEIOU]|$)			ᯖᯬᯰ
 	0	4    SONG([^AEIOU]|$)			ᯘᯬᯰ
 	0	4    CONG([^AEIOU]|$)			0063006F005E
-	0	4    YONG([^AEIOU]|$)			0079006F005E
+	0	4    YONG([^AEIOU]|$)			ᯛᯬᯰ
 	0	4    LONG([^AEIOU]|$)			ᯞᯬᯰ
 	0	4    HUNG([^AEIOU]|$)			ᯂᯮᯰ
 	0	4    KUNG([^AEIOU]|$)			004B005E
@@ -91,18 +91,18 @@
 	0	4    TUNG([^AEIOU]|$)			ᯎᯮᯰ
 	0	4    SUNG([^AEIOU]|$)			ᯘᯮᯰ
 	0	4    CUNG([^AEIOU]|$)			0043005E
-	0	4    YUNG([^AEIOU]|$)			0059005E
+	0	4    YUNG([^AEIOU]|$)			ᯛᯮᯰ
 	0	4    LUNG([^AEIOU]|$)			ᯞᯮᯰ
 	0	3    NGA					ᯝ
-	0	3    NYA					005B
+	0	3    NYA					ᯠ
 	0	3    NGE					ᯝᯩ
-	0	3    NYE					005B0065
+	0	3    NYE					ᯠᯩ
 	0	3    NGI					ᯝᯪ
-	0	3    NYI					005B0069
+	0	3    NYI					ᯠᯪ
 	0	3    NGO					ᯝᯬ
-	0	3    NYO					005B006F
+	0	3    NYO					ᯠᯬ
 	0	3    NGU					ᯝᯮ
-	0	3    NYU					005D
+	0	3    NYU					ᯠᯮ
 	0	3    ANG([^AEIOU]|$)			ᯀᯰ
 	0	3    ENG([^AEIOU]|$)			ᯀᯩᯰ
 	0	3    ING([^AEIOU]|$)			ᯤᯰ
@@ -115,7 +115,7 @@
 	0	2    PA						ᯇ
 	0	2    NA						ᯉ
 	0	2    WA						ᯋ
-	0	2    GA						0067
+	0	2    GA						ᯎ
 	0	2    JA						ᯐ
 	0	2    DA						ᯑ
 	0	2    RA						ᯒ
@@ -123,7 +123,7 @@
 	0	2    TA						ᯖ
 	0	2    SA						ᯗ
 	0	2    CA						0063
-	0	2    YA						0079
+	0	2    YA						ᯛ
 	0	2    LA						ᯞ
 	0	2    HE						ᯂᯩ
 	0	2    KE						006B0065
@@ -139,7 +139,7 @@
 	0	2    TE		ᯖᯩ
 	0	2    SE		ᯘᯩ
 	0	2    CE     00630065
-	0	2    YE		00790065
+	0	2    YE		ᯛᯩ
 	0	2    LE		ᯞᯩ
 	0	2    HI		ᯂᯪ
 	0	2    KI		006B0069
@@ -155,7 +155,7 @@
 	0	2    TI		ᯖᯪ
 	0	2    SI		ᯘᯪ
 	0	2    CI         00630069
-	0	2    YI		00790069
+	0	2    YI		ᯛᯪ
 	0	2    LI		ᯞᯪ
 	0	2    HO		ᯂᯬ
 	0	2    KO		006B006F
@@ -171,7 +171,7 @@
 	0	2    TO		ᯖᯬ
 	0	2    SO		ᯘᯬ
 	0	2    CO		0063006F
-	0	2    YO		0079006F
+	0	2    YO		ᯛᯬ
 	0	2    LO		ᯞᯬ
 	0	2    HU		ᯂᯮ
 	0	2    KU		004B
@@ -187,10 +187,10 @@
 	0	2    TU		ᯖᯮ
 	0	2    SU		ᯘᯮ
 	0	2    CU         0043
-	0	2    YU		0059
+	0	2    YU		ᯛᯮ
 	0	2    LU		ᯞᯮ
-	0	2    NG		003C005C
-	0	2    NY		005B
+	0	2    NG		ᯝ᯲
+	0	2    NY		ᯠ᯲
 	0	1    A		ᯀ
 	0	1    B		ᯅ᯲
 	0	1    D		ᯑ᯲
