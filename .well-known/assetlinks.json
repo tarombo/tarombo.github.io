@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "org.siboro.tarombo",
+    "sha256_cert_fingerprints":
+    ["DD:C3:6F:FB:94:51:21:F2:8D:4E:33:B4:44:CE:B2:0E:F8:61:27:05:F3:3B:BB:0E:A6:FA:A9:39:C3:0D:14:0B"]
+  }
+}]
